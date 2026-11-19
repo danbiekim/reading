@@ -3,56 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>꿈담아독서코칭 | 책을 읽는 아이를 넘어, 세상을 읽는 아이로</title>
+  <title>꿈담아독서코칭 | Storybook Garden · 책을 읽는 아이를 넘어, 세상을 읽는 아이로</title>
   <meta name="description" content="고전으로 생각을 키우는 인문학 독서코칭 - 독서토론수업 및 글쓰기 수업, 북살롱, 꿈담아작가아카데미, 소크라맘아카데미 (포항시 남구 대해로 80-12)" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Gowun Batang (따뜻한 문학·인문학 명조) & Noto Sans KR (깔끔한 본문 고딕) -->
+  <!-- Pretendard (UI & Body Sans) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- Google Fonts: Fraunces & Gowun Batang (Display Editorial), Gaegu (Hand-drawn Brand), Plus Jakarta Sans (UI & Body Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Gaegu:wght@400;700&family=Gowun+Batang:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Gowun Batang"', 'Georgia', 'serif'],
-            sans: ['"Noto Sans KR"', 'sans-serif'],
+            editorial: ['"Fraunces"', '"Gowun Batang"', 'Georgia', 'serif'],
+            serif: ['"Gowun Batang"', '"Fraunces"', 'Georgia', 'serif'],
+            hand: ['"Gaegu"', 'cursive'],
+            sans: ['"Plus Jakarta Sans"', '"Pretendard"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           colors: {
-            cream: {
-              50: '#FCFBF8',
-              100: '#FAF7F2',
-              200: '#F3EDE2',
-              300: '#E7DEC9',
+            forest: {
+              DEFAULT: '#263327',
+              hover: '#1B251C',
             },
-            ivy: {
-              50: '#F2F6F1',
-              100: '#E4ECE2',
-              200: '#C9D9C6',
-              400: '#7D9B83',
-              600: '#4E6E58',
-              700: '#3D5745',
+            sprout: {
+              DEFAULT: '#76935B',
+              light: '#E7EFE0',
             },
-            wood: {
-              100: '#F3EAE0',
-              200: '#E4D2BE',
-              400: '#B59270',
-              600: '#8C6A4A',
-              800: '#4A3728',
+            bark: '#855A3C',
+            espresso: '#453020',
+            pistachio: {
+              DEFAULT: '#E3EDC4',
+              light: '#F1F6E1',
             },
-            ink: {
-              900: '#2B2520',
-              700: '#4F463E',
-              500: '#786D63',
-            }
+            apricot: '#FDEBD4',
+            peach: '#F9D5C2',
+            paper: '#FAF9F6',
+            sand: '#E6E1D6',
           },
           boxShadow: {
-            soft: '0 10px 30px -10px rgba(74, 55, 40, 0.08)',
-            card: '0 4px 20px -2px rgba(78, 110, 88, 0.07)',
+            garden: '0 12px 28px -6px rgba(38, 51, 39, 0.09)',
+            espresso: '0 8px 24px -4px rgba(69, 48, 32, 0.06)',
+            pill: '0 4px 14px -2px rgba(38, 51, 39, 0.14)',
           }
         }
       }
@@ -60,7 +58,37 @@
   </script>
 
   <style>
-    /* 기본 스크롤바 숨김 유틸리티 (모바일 가로 퀵메뉴용) */
+    :root {
+      /* Brand Core & Botanical Ink */
+      --color-forest: #263327;
+      --color-forest-hover: #1B251C;
+      --color-sprout: #76935B;
+      --color-sprout-light: #E7EFE0;
+      --color-bark: #855A3C;
+      --color-espresso: #453020;
+
+      /* Garden Surfaces & Organic Accents */
+      --color-pistachio: #E3EDC4;
+      --color-pistachio-light: #F1F6E1;
+      --color-apricot: #FDEBD4;
+      --color-peach: #F9D5C2;
+      --color-paper: #FAF9F6;
+      --color-sand: #E6E1D6;
+
+      /* Organic Shape Radii */
+      --radius-pebble-leaf: 34% 66% 62% 38% / 36% 42% 58% 64%;
+      --radius-soft-orb: 52% 48% 50% 50% / 48% 52% 48% 52%;
+      --radius-squircle: 34% 34% 36% 36% / 34% 34% 36% 36%;
+    }
+
+    body {
+      background-color: var(--color-paper);
+      color: var(--color-forest);
+      font-family: 'Plus Jakarta Sans', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* 스크롤바 숨김 유틸리티 */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -69,75 +97,109 @@
       scrollbar-width: none;
     }
 
-    /* 종이 질감의 은은한 배경 패턴 */
-    body {
-      background-color: #FAF7F2;
-      color: #2B2520;
-      font-family: 'Noto Sans KR', sans-serif;
-      overflow-x: hidden;
+    /* 유기적 보태니컬 도형 클래스 */
+    .shape-pebble-leaf {
+      border-radius: var(--radius-pebble-leaf);
+    }
+    .shape-soft-orb {
+      border-radius: var(--radius-soft-orb);
+    }
+    .shape-garden-squircle {
+      border-radius: var(--radius-squircle);
     }
 
-    /* 부드러운 잎사귀 흔들림 애니메이션 */
-    @keyframes gentleSway {
+    /* 새싹 탄성 모션 (Sprout Spring) */
+    .sprout-spring {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.25s ease,
+                  border-color 0.25s ease,
+                  box-shadow 0.25s ease;
+    }
+    .btn-forest-pill:hover {
+      background-color: var(--color-forest-hover);
+      transform: translateY(-2px);
+    }
+    .btn-sprout-pill:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    /* 부드러운 새싹 흔들림 애니메이션 */
+    @keyframes gentleSprout {
       0%, 100% { transform: rotate(0deg) translateY(0px); }
-      50% { transform: rotate(2.5deg) translateY(-3px); }
+      50% { transform: rotate(2.2deg) translateY(-3px); }
     }
-    .animate-sway {
-      animation: gentleSway 6s ease-in-out infinite;
-      transform-origin: top left;
+    .animate-sprout {
+      animation: gentleSprout 5.5s ease-in-out infinite;
+      transform-origin: bottom center;
     }
 
-    /* 모달 페이드 인 */
+    /* 모달 페이드 업 */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-up {
-      animation: fadeUp 0.28s ease-out forwards;
+      animation: fadeUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
   </style>
 </head>
-<body class="antialiased selection:bg-ivy-200 selection:text-ink-900 pb-20 sm:pb-0">
+<body class="antialiased selection:bg-pistachio selection:text-forest pb-20 sm:pb-0">
 
-  <!-- ==================== 상단 고정 네비게이션 & 상호명 헤더 ==================== -->
-  <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-300/80">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+  <!-- ==================== 1. 상단 헤더 (Primary Light Logo Lockup) ==================== -->
+  <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b border-sand">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16 sm:h-20">
-        <!-- 상호명 로고 영역 -->
-        <a href="#top" class="flex items-center gap-2.5 group focus:outline-none">
-          <!-- 아이비 잎 & 책 심볼 SVG -->
-          <div class="w-10 h-10 rounded-2xl bg-ivy-100 border border-ivy-200 flex items-center justify-center text-ivy-600 group-hover:bg-ivy-600 group-hover:text-white transition-colors duration-300 shadow-xs">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              <path d="M12 7c1.5-2.5 4-3 6-2.5-.5 2-2 4-6 2.5z" fill="currentColor" fill-opacity="0.2" />
+        <!-- Primary Light 로고: 세이지 그린 새싹 심볼 + 에스프레소 손글씨 워드마크 -->
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-11 h-11 shape-garden-squircle bg-sprout-light border border-sprout/30 flex items-center justify-center sprout-spring group-hover:scale-105 shadow-espresso">
+            <!-- 전용 보태니컬 심볼: 펼쳐진 책(#855A3C & #76935B) + 싹트는 두 잎과 반짝임(#76935B) -->
+            <svg class="w-6 h-6" viewBox="0 0 28 28" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- 펼쳐진 책 표지 (Bark Brown) -->
+              <path d="M3 20.5C6.5 19.2 10.5 19.6 14 21.5C17.5 19.6 21.5 19.2 25 20.5" stroke="#855A3C" />
+              <!-- 책장 라인 (Sprout Sage) -->
+              <path d="M4.5 17.5C7.5 16.5 11 17 14 18.8C17 17 20.5 16.5 23.5 17.5" stroke="#76935B" />
+              <!-- 줄기 및 싹트는 두 잎 -->
+              <path d="M14 18.5V10.5" stroke="#76935B" />
+              <path d="M14 13C14 9.5 10.5 8 8 9C8.2 11.8 10.8 13.4 14 13Z" fill="#E3EDC4" stroke="#76935B" />
+              <path d="M14 11.5C14 8 17.5 6.5 20 7.5C19.8 10.3 17.2 11.9 14 11.5Z" fill="#76935B" stroke="#76935B" />
+              <!-- 반짝임 -->
+              <path d="M14 3.5V5M10.5 4.8L11.5 5.8M17.5 4.8L16.5 5.8" stroke="#76935B" stroke-width="1.8" />
             </svg>
           </div>
           <div>
-            <span class="font-serif font-bold text-lg sm:text-xl tracking-tight text-ink-900 block leading-tight">
-              꿈담아독서코칭
-            </span>
-            <span class="text-[11px] sm:text-xs text-ivy-600 font-medium tracking-wide block">
-              독서토론 · 인문학 글쓰기
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-hand font-bold text-2xl sm:text-[26px] text-espresso leading-none tracking-tight">
+                꿈담아
+              </span>
+              <span class="font-serif font-bold text-base sm:text-lg text-forest leading-none">
+                독서코칭
+              </span>
+            </div>
+            <span class="font-editorial italic text-[11px] sm:text-xs text-sprout font-semibold tracking-wide block mt-0.5">
+              Storybook Garden · 독서토론 · 글쓰기
             </span>
           </div>
         </a>
 
-        <!-- 데스크톱 메뉴 -->
+        <!-- 데스크톱 내비게이션 (에디토리얼 스타일 + Primary Forest Pill) -->
         <nav aria-label="주요 메뉴" class="hidden md:flex items-center gap-1 lg:gap-2">
-          <a href="#programs" class="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-700 hover:text-ivy-700 hover:bg-ivy-50 transition-colors">
+          <a href="#programs" class="px-4 py-2.5 rounded-full text-sm font-medium text-forest hover:bg-pistachio-light transition-colors">
             독서코칭
           </a>
-          <a href="#curriculum" class="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-700 hover:text-ivy-700 hover:bg-ivy-50 transition-colors">
+          <a href="#curriculum" class="px-4 py-2.5 rounded-full text-sm font-medium text-forest hover:bg-pistachio-light transition-colors">
             수업소개
           </a>
-          <a href="#space" class="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-700 hover:text-ivy-700 hover:bg-ivy-50 transition-colors">
+          <a href="#space" class="px-4 py-2.5 rounded-full text-sm font-medium text-forest hover:bg-pistachio-light transition-colors">
             공간사진
           </a>
-          <a href="#location" class="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-700 hover:text-ivy-700 hover:bg-ivy-50 transition-colors">
+          <a href="#location" class="px-4 py-2.5 rounded-full text-sm font-medium text-forest hover:bg-pistachio-light transition-colors">
             오시는길
           </a>
-          <button type="button" onclick="openInquiryModal()" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-ivy-600 text-white hover:bg-ivy-700 transition-colors shadow-xs cursor-pointer">
+          <button
+            type="button"
+            onclick="openInquiryModal()"
+            class="ml-2 min-h-[44px] px-6 py-2.5 rounded-full text-sm font-semibold bg-forest text-white btn-forest-pill sprout-spring shadow-pill cursor-pointer"
+          >
             상담 문의
           </button>
         </nav>
@@ -149,42 +211,42 @@
           aria-label="메뉴 열기"
           aria-expanded="false"
           onclick="toggleMobileMenu()"
-          class="md:hidden p-2.5 rounded-xl text-ink-700 hover:bg-cream-200 focus:outline-none focus:ring-2 focus:ring-ivy-400"
+          class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-forest hover:bg-pistachio-light focus:outline-none focus:ring-2 focus:ring-sprout"
         >
-          <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <!-- 모바일 퀵 앵커 바 (한 손으로 바로 메뉴 이동 가능) -->
-      <div class="md:hidden flex items-center gap-1.5 pb-2.5 overflow-x-auto no-scrollbar text-xs font-medium">
-        <a href="#programs" class="shrink-0 px-3.5 py-1.5 rounded-full bg-ivy-50 text-ivy-700 border border-ivy-200/80">독서코칭</a>
-        <a href="#curriculum" class="shrink-0 px-3.5 py-1.5 rounded-full bg-cream-100 text-ink-700 border border-cream-300">수업소개</a>
-        <a href="#space" class="shrink-0 px-3.5 py-1.5 rounded-full bg-cream-100 text-ink-700 border border-cream-300">공간사진</a>
-        <a href="#location" class="shrink-0 px-3.5 py-1.5 rounded-full bg-cream-100 text-ink-700 border border-cream-300">오시는길</a>
+      <!-- 모바일 퀵 앵커 바 (Garden Pill Tabs 스타일) -->
+      <div class="md:hidden flex items-center gap-2 pb-3 overflow-x-auto no-scrollbar text-xs font-semibold">
+        <a href="#programs" class="shrink-0 px-4 py-2 rounded-full bg-forest text-white">독서코칭</a>
+        <a href="#curriculum" class="shrink-0 px-4 py-2 rounded-full bg-paper text-forest border border-sand">수업소개</a>
+        <a href="#space" class="shrink-0 px-4 py-2 rounded-full bg-paper text-forest border border-sand">공간사진</a>
+        <a href="#location" class="shrink-0 px-4 py-2 rounded-full bg-paper text-forest border border-sand">오시는길</a>
       </div>
     </div>
 
     <!-- 모바일 드롭다운 메뉴 -->
-    <div id="mobileMenuDrawer" class="hidden md:hidden bg-cream-50 border-t border-cream-300 px-4 pt-3 pb-5 space-y-1.5 shadow-soft">
-      <a href="#programs" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-ink-900 hover:bg-ivy-50">
-        1. 독서코칭 <span class="text-xs text-ink-500 ml-1">프로그램 안내</span>
+    <div id="mobileMenuDrawer" class="hidden md:hidden bg-paper border-t border-sand px-4 pt-3 pb-6 space-y-1.5 shadow-garden">
+      <a href="#programs" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-base font-semibold text-forest hover:bg-pistachio-light">
+        01. 독서코칭 <span class="text-xs font-normal text-bark ml-1.5">프로그램 안내</span>
       </a>
-      <a href="#curriculum" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-ink-900 hover:bg-ivy-50">
-        2. 수업소개
+      <a href="#curriculum" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-base font-semibold text-forest hover:bg-pistachio-light">
+        02. 수업소개 <span class="text-xs font-normal text-bark ml-1.5">코칭 4단계 프로세스</span>
       </a>
-      <a href="#space" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-ink-900 hover:bg-ivy-50">
-        3. 공간사진
+      <a href="#space" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-base font-semibold text-forest hover:bg-pistachio-light">
+        03. 공간사진 <span class="text-xs font-normal text-bark ml-1.5">배움의 정원</span>
       </a>
-      <a href="#location" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-ink-900 hover:bg-ivy-50">
-        4. 오시는길
+      <a href="#location" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-base font-semibold text-forest hover:bg-pistachio-light">
+        04. 오시는길 <span class="text-xs font-normal text-bark ml-1.5">포항시 남구 대해로 80-12</span>
       </a>
-      <div class="pt-2">
-        <button type="button" onclick="closeMobileMenu(); openInquiryModal();" class="w-full py-3.5 rounded-xl bg-ivy-600 text-white font-semibold text-sm shadow-xs">
+      <div class="pt-3">
+        <button type="button" onclick="closeMobileMenu(); openInquiryModal();" class="w-full min-h-[48px] py-3 rounded-full bg-forest text-white font-semibold text-sm btn-forest-pill sprout-spring shadow-pill">
           수업 및 상담 문의하기
         </button>
       </div>
@@ -192,111 +254,131 @@
   </header>
 
   <main id="top">
-    <!-- ==================== 1. 히어로 섹션: 맨 위 상호명과 한 문장 소개 ==================== -->
-    <section class="relative overflow-hidden pt-8 pb-14 sm:pt-14 sm:pb-20 px-4 sm:px-6 bg-gradient-to-b from-ivy-50/70 via-cream-100 to-cream-100">
-      <!-- 배경 장식: 부드러운 파스텔 원형 및 아이비 잎사귀 일러스트 -->
-      <div aria-hidden="true" class="pointer-events-none absolute -top-20 -right-20 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-ivy-200/30 blur-3xl"></div>
-      <div aria-hidden="true" class="pointer-events-none absolute top-40 -left-24 w-64 h-64 rounded-full bg-wood-200/35 blur-3xl"></div>
+    <!-- ==================== 2. 히어로 섹션 (Garden Editorial Lockup · Pistachio Meadow #E3EDC4) ==================== -->
+    <section class="relative overflow-hidden bg-pistachio pt-12 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-6 border-b border-sand">
+      <!-- 배경 유기적 보태니컬 오브 장식 -->
+      <div aria-hidden="true" class="pointer-events-none absolute -top-24 -right-20 w-80 h-80 sm:w-[440px] sm:h-[440px] shape-soft-orb bg-pistachio-light/80"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -bottom-28 -left-20 w-72 h-72 sm:w-96 sm:h-96 shape-pebble-leaf bg-apricot/55"></div>
 
-      <!-- 왼쪽 상단 아이비 덩굴 데코 SVG -->
-      <svg aria-hidden="true" class="pointer-events-none absolute top-2 left-2 sm:left-8 w-28 sm:w-40 text-ivy-400/35 animate-sway" viewBox="0 0 160 140" fill="none">
-        <path d="M5 5 C 40 25, 85 20, 145 55" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        <path d="M35 18 C 25 32, 30 48, 45 45 C 52 34, 46 22, 35 18 Z" fill="currentColor" />
-        <path d="M72 25 C 68 42, 78 55, 90 48 C 94 35, 84 25, 72 25 Z" fill="currentColor" />
-        <path d="M112 38 C 106 54, 118 66, 130 58 C 132 45, 122 36, 112 38 Z" fill="currentColor" />
-      </svg>
-
-      <div class="max-w-5xl mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          <!-- 텍스트 영역: 상호명 & 소개 -->
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- 좌측 에디토리얼 타이틀 & 브랜드 소개 -->
           <div class="lg:col-span-7 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 border border-ivy-200 text-ivy-700 text-xs sm:text-sm font-medium mb-4 shadow-2xs">
-              <span class="w-2 h-2 rounded-full bg-ivy-600"></span>
+            <!-- Garden Editorial 병기 뱃지 -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-paper/90 border border-bark/15 text-forest text-xs sm:text-[13px] font-semibold mb-6 shadow-espresso">
+              <span class="font-editorial italic text-sprout font-bold text-sm">Storybook Garden</span>
+              <span class="text-bark/40">|</span>
               <span>독서토론수업 및 글쓰기 수업</span>
             </div>
 
-            <!-- 상호명 -->
-            <h1 class="font-serif font-bold text-3xl sm:text-5xl text-ink-900 tracking-tight leading-tight mb-4">
-              꿈담아독서코칭
+            <!-- Hero Display: Fraunces + Gowun Batang + Gaegu 손글씨 포인트 -->
+            <h1 class="font-editorial font-bold text-[44px] sm:text-[58px] lg:text-[64px] text-forest tracking-tight leading-[1.08] mb-5">
+              <span class="font-hand text-[52px] sm:text-[66px] lg:text-[72px] text-espresso font-bold block sm:inline">꿈담아</span>독서코칭
             </h1>
 
-            <!-- 한 문장 소개 (brand.md 핵심 문구) -->
-            <p class="font-serif text-xl sm:text-2xl text-ivy-700 font-bold leading-relaxed mb-5 bg-white/70 inline-block px-4 py-2.5 rounded-2xl border border-ivy-200/70 shadow-2xs">
-              “책을 읽는 아이를 넘어, 세상을 읽는 아이로.”
+            <!-- 핵심 슬로건 카드 (Warm Apricot #FDEBD4 인용구 박스) -->
+            <div class="inline-block bg-apricot border border-bark/15 rounded-[28px] px-6 py-4 mb-6 shadow-espresso">
+              <p class="font-serif font-bold text-lg sm:text-2xl text-espresso leading-snug">
+                “책을 읽는 아이를 넘어, 세상을 읽는 아이로.”
+              </p>
+            </div>
+
+            <!-- 서브 소개 문구 (Body Default 15px/16px, line-height 1.65) -->
+            <p class="text-[15px] sm:text-base text-forest/90 leading-[1.65] max-w-xl mx-auto lg:mx-0 mb-8">
+              <strong class="font-bold text-bark">고전으로 생각을 키우는 인문학 독서코칭</strong> 공간입니다.<br class="hidden sm:inline" />
+              책장 위에서 싹트는 이야기의 온기와 보태니컬 정원처럼 차분한 배움터에서 아이와 어른 모두 스스로 질문하고 사유하는 힘을 기릅니다.
             </p>
 
-            <!-- 대표 서비스 및 공간 무드 소개 -->
-            <p class="text-sm sm:text-base text-ink-700 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-7">
-              <strong class="font-semibold text-wood-800">고전으로 생각을 키우는 인문학 독서코칭</strong> 공간입니다.<br class="hidden sm:inline" />
-              푸른 아이비 잎과 따뜻한 원목 테이블, 깊이 있는 고전이 어우러진 차분한 공간에서 아이와 어른 모두 스스로 질문하고 사유하는 힘을 기릅니다.
-            </p>
-
-            <!-- 상단 액션 버튼 -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
-              <a href="#programs" class="px-6 py-3.5 rounded-2xl bg-ivy-600 hover:bg-ivy-700 text-white font-semibold text-sm sm:text-base transition-all shadow-soft text-center">
-                독서코칭 프로그램 보기
+            <!-- 필 버튼 시스템: Primary Forest Pill + Secondary Outlined Pill (min-h 44px) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5">
+              <a
+                href="#programs"
+                class="min-h-[48px] px-7 py-3.5 rounded-full bg-forest text-white font-semibold text-sm sm:text-[15px] btn-forest-pill sprout-spring shadow-pill inline-flex items-center justify-center gap-2"
+              >
+                <span>독서코칭 프로그램 보기</span>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </a>
-              <a href="#bottom-inquiry" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-wood-100 text-wood-800 border border-wood-200 font-semibold text-sm sm:text-base transition-all text-center">
+              <a
+                href="#bottom-inquiry"
+                class="min-h-[48px] px-7 py-3.5 rounded-full bg-transparent border border-forest text-forest hover:bg-paper/60 font-semibold text-sm sm:text-[15px] sprout-spring inline-flex items-center justify-center"
+              >
                 수업 상담 문의하기
               </a>
             </div>
           </div>
 
-          <!-- 감성 일러스트 카드 (책, 나무, 아이비 잎 무드 표현) -->
+          <!-- 우측 유기적 보태니컬 도형 3종 조합 카드 (Leaf Pebble · Soft Orb · Garden Squircle) -->
           <div class="lg:col-span-5">
-            <div class="relative mx-auto max-w-md bg-white/90 rounded-3xl p-5 sm:p-6 border border-cream-300 shadow-soft">
-              <!-- SVG 일러스트: 따뜻한 나무 책상 위의 펼쳐진 고전과 아이비 잎 -->
-              <svg viewBox="0 0 400 290" class="w-full h-auto rounded-2xl bg-gradient-to-br from-ivy-50 via-cream-100 to-wood-100" role="img" aria-label="따뜻한 원목 책상 위 펼쳐진 고전 책과 푸른 아이비 잎 일러스트">
-                <!-- 창문 햇살 -->
-                <rect x="35" y="22" width="145" height="145" rx="16" fill="#FFFFFF" fill-opacity="0.75" stroke="#D8C3A5" stroke-width="2" />
-                <line x1="107.5" y1="22" x2="107.5" y2="167" stroke="#E4D2BE" stroke-width="2" />
-                <line x1="35" y1="94.5" x2="180" y2="94.5" stroke="#E4D2BE" stroke-width="2" />
-                <circle cx="142" cy="56" r="18" fill="#F6E3BA" fill-opacity="0.7" />
+            <div class="relative mx-auto max-w-md">
+              <!-- 1) Soft Orb 배경 레이어 (Soft Peach #F9D5C2) -->
+              <div aria-hidden="true" class="absolute -top-4 -right-3 w-44 h-44 shape-soft-orb bg-peach/80"></div>
+              <!-- 2) Leaf Pebble 배경 레이어 (Warm Apricot #FDEBD4) -->
+              <div aria-hidden="true" class="absolute -bottom-4 -left-3 w-48 h-48 shape-pebble-leaf bg-apricot"></div>
 
-                <!-- 창틀 위 아이비 화분과 덩굴 -->
-                <path d="M275 152 L283 185 L317 185 L325 152 Z" fill="#C98A6B" />
-                <rect x="271" y="146" width="58" height="8" rx="4" fill="#B57556" />
-                <path d="M300 146 C 295 115, 270 100, 245 112" stroke="#4E6E58" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                <path d="M302 146 C 315 112, 342 108, 360 128" stroke="#4E6E58" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                <path d="M300 146 C 300 118, 305 92, 322 80" stroke="#7D9B83" stroke-width="2" fill="none" stroke-linecap="round" />
-                <!-- 아이비 잎사귀들 -->
-                <path d="M245 112 C 232 106, 226 118, 238 126 C 246 126, 250 119, 245 112 Z" fill="#5D7A64" />
-                <path d="M272 108 C 264 95, 250 102, 256 114 C 264 118, 272 114, 272 108 Z" fill="#7D9B83" />
-                <path d="M322 80 C 318 66, 333 64, 336 77 C 332 84, 325 84, 322 80 Z" fill="#5D7A64" />
-                <path d="M360 128 C 372 124, 375 138, 362 142 C 355 139, 355 132, 360 128 Z" fill="#7D9B83" />
-                <path d="M336 114 C 344 102, 358 109, 350 120 C 342 123, 336 119, 336 114 Z" fill="#4E6E58" />
+              <!-- 3) 메인 스토리북 가든 아트 카드 -->
+              <div class="relative bg-paper rounded-[32px] p-7 border border-sand shadow-garden">
+                <!-- 상단 성장 단계 미니 뱃지 & 손글씨 코치 노트 -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pistachio text-forest">
+                    🌱 Storybook Garden
+                  </span>
+                  <span class="font-hand font-bold text-xl text-bark">
+                    생각이 자라는 정원 ✦
+                  </span>
+                </div>
 
-                <!-- 원목 테이블 상판 -->
-                <rect x="18" y="185" width="364" height="86" rx="16" fill="#DFC7AC" />
-                <rect x="18" y="185" width="364" height="14" rx="7" fill="#CFAF8C" />
+                <!-- Leaf Pebble 마스크 프레임 안에 담긴 펼쳐진 고전과 새싹 일러스트 -->
+                <div class="shape-pebble-leaf overflow-hidden bg-pistachio-light border border-sprout/25 p-3">
+                  <svg viewBox="0 0 380 265" class="w-full h-auto" role="img" aria-label="펼쳐진 고전 책 위에서 싹트는 두 잎과 따뜻한 보태니컬 정원 일러스트">
+                    <!-- 햇살 영감 원형 -->
+                    <circle cx="295" cy="54" r="28" fill="#FDEBD4" />
+                    <path d="M295 16V24M295 84V92M257 54H265M325 54H333M268 27L274 33M316 75L322 81M322 27L316 33M274 75L268 81" stroke="#855A3C" stroke-width="2" stroke-linecap="round" />
 
-                <!-- 펼쳐진 고전 책 -->
-                <path d="M88 182 C 122 172, 158 176, 185 188 L185 236 C 158 224, 122 220, 88 230 Z" fill="#FFFDF9" stroke="#B59270" stroke-width="2" />
-                <path d="M282 182 C 248 172, 212 176, 185 188 L185 236 C 212 224, 248 220, 282 230 Z" fill="#FAF5EC" stroke="#B59270" stroke-width="2" />
-                <!-- 책 페이지 줄 -->
-                <line x1="106" y1="194" x2="168" y2="198" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <line x1="106" y1="205" x2="164" y2="209" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <line x1="106" y1="216" x2="155" y2="219" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <line x1="202" y1="198" x2="264" y2="194" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <line x1="206" y1="209" x2="264" y2="205" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <line x1="212" y1="219" x2="255" y2="216" stroke="#D8C3A5" stroke-width="2" stroke-linecap="round" />
-                <!-- 책갈피 리본 -->
-                <path d="M185 188 L185 248 L192 242 L198 248 L198 188" fill="#4E6E58" />
+                    <!-- 피치 & 애프리콧 보태니컬 잎사귀 실루엣 -->
+                    <path d="M62 150C40 120 48 80 78 68C95 96 86 132 62 150Z" fill="#F9D5C2" />
+                    <path d="M318 162C342 136 338 96 310 82C290 108 296 144 318 162Z" fill="#E3EDC4" />
 
-                <!-- 따뜻한 차 머그잔 -->
-                <rect x="305" y="198" width="34" height="30" rx="8" fill="#FAF7F2" stroke="#8C6A4A" stroke-width="2" />
-                <path d="M339 205 C 349 205, 349 221, 339 221" stroke="#8C6A4A" stroke-width="2" fill="none" />
-                <path d="M316 190 C 314 183, 320 180, 318 174" stroke="#B59270" stroke-width="1.5" fill="none" stroke-linecap="round" />
-                <path d="M326 190 C 324 183, 330 180, 328 174" stroke="#B59270" stroke-width="1.5" fill="none" stroke-linecap="round" />
-              </svg>
+                    <!-- 책장 위에서 싹트는 메인 새싹 (Sprout Sage #76935B) -->
+                    <path d="M190 156V86" stroke="#76935B" stroke-width="3.2" stroke-linecap="round" />
+                    <!-- 왼쪽 새싹 잎 -->
+                    <path d="M190 116C188 86 154 72 132 84C136 108 162 122 190 116Z" fill="#E3EDC4" stroke="#76935B" stroke-width="2.5" stroke-linejoin="round" />
+                    <path d="M186 114C168 104 152 96 140 88" stroke="#76935B" stroke-width="1.8" stroke-linecap="round" />
+                    <!-- 오른쪽 새싹 잎 -->
+                    <path d="M190 102C192 72 226 58 248 70C244 94 218 108 190 102Z" fill="#76935B" stroke="#263327" stroke-width="2.2" stroke-linejoin="round" />
+                    <path d="M194 100C212 90 228 82 240 74" stroke="#E3EDC4" stroke-width="1.8" stroke-linecap="round" />
 
-              <!-- 하단 요약 배지 -->
-              <div class="mt-4 flex items-center justify-between text-xs sm:text-sm text-ink-700 px-1">
-                <span class="flex items-center gap-1.5 font-medium">
-                  <span class="w-2.5 h-2.5 rounded-full bg-ivy-400"></span>
-                  아이비 · 원목 · 고전의 공간
-                </span>
-                <span class="text-wood-600 font-semibold">수~금 13:00–18:00</span>
+                    <!-- 반짝임 포인트 -->
+                    <path d="M190 42V54M184 48H196" stroke="#855A3C" stroke-width="2.2" stroke-linecap="round" />
+                    <circle cx="164" cy="56" r="2.5" fill="#76935B" />
+                    <circle cx="216" cy="48" r="2.5" fill="#855A3C" />
+
+                    <!-- 펼쳐진 고전 책 (Bark Brown #855A3C 표지 + Paper Cream #FAF9F6 책장) -->
+                    <path d="M74 152C116 140 156 146 190 162C224 146 264 140 306 152L298 214C260 202 222 208 190 224C158 208 120 202 82 214L74 152Z" fill="#FAF9F6" stroke="#855A3C" stroke-width="2.8" stroke-linejoin="round" />
+                    <!-- 책 표지 하단 받침 -->
+                    <path d="M66 218C112 206 154 212 190 229C226 212 268 206 314 218" stroke="#855A3C" stroke-width="3.5" stroke-linecap="round" />
+                    <!-- 중앙 책등 선 -->
+                    <path d="M190 162V224" stroke="#855A3C" stroke-width="2.2" stroke-linecap="round" />
+                    <!-- 책 페이지 문장 라인 -->
+                    <path d="M98 168C124 162 150 165 172 173" stroke="#76935B" stroke-width="2" stroke-linecap="round" />
+                    <path d="M98 182C124 176 150 179 172 187" stroke="#E6E1D6" stroke-width="2" stroke-linecap="round" />
+                    <path d="M98 196C120 191 142 193 162 199" stroke="#E6E1D6" stroke-width="2" stroke-linecap="round" />
+
+                    <path d="M282 168C256 162 230 165 208 173" stroke="#76935B" stroke-width="2" stroke-linecap="round" />
+                    <path d="M282 182C256 176 230 179 208 187" stroke="#E6E1D6" stroke-width="2" stroke-linecap="round" />
+                    <path d="M282 196C260 191 238 193 218 199" stroke="#E6E1D6" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+
+                <!-- 하단 요약 정보 -->
+                <div class="mt-5 pt-4 border-t border-sand flex items-center justify-between text-xs sm:text-[13px]">
+                  <span class="inline-flex items-center gap-2 font-semibold text-forest">
+                    <span class="w-2.5 h-2.5 rounded-full bg-sprout"></span>
+                    고전 인문학 · 독서토론 · 글쓰기
+                  </span>
+                  <span class="font-semibold text-bark">수~금 13:00–18:00</span>
+                </div>
               </div>
             </div>
           </div>
@@ -304,180 +386,266 @@
       </div>
     </section>
 
-    <!-- ==================== 2. 독서코칭 (세부 프로그램 안내) ==================== -->
-    <section id="programs" class="py-14 sm:py-20 px-4 sm:px-6 scroll-mt-24">
-      <div class="max-w-5xl mx-auto">
+    <!-- ==================== 3. 독서코칭 프로그램 안내 (Garden Pill Tabs + Growth Stage Badges) ==================== -->
+    <section id="programs" class="py-20 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
         <!-- 섹션 헤더 -->
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span class="text-xs font-semibold tracking-widest uppercase text-ivy-600 block mb-2">PROGRAMS</span>
-          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ink-900 mb-3">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="font-editorial italic text-sm font-semibold text-sprout block mb-2">
+            Curated Reading Programs
+          </span>
+          <h2 class="font-editorial font-bold text-[28px] sm:text-[36px] text-forest leading-[1.2] mb-3.5">
             독서코칭 프로그램 안내
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 leading-relaxed">
+          <p class="text-[15px] sm:text-base text-forest/80 leading-[1.65]">
             연령과 배움의 깊이에 따라 4가지 맞춤형 인문학 독서·글쓰기 프로그램을 운영합니다.
           </p>
         </div>
 
-        <!-- 프로그램 필터 탭 (모바일 & 데스크톱 모두 터치하기 쉽게) -->
-        <div role="tablist" aria-label="프로그램 선택 탭" class="flex flex-wrap items-center justify-center gap-2 mb-8">
-          <button type="button" role="tab" aria-selected="true" data-filter="all" onclick="filterPrograms('all')" class="program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-ivy-600 text-white shadow-2xs transition-all cursor-pointer">
+        <!-- A. 가든 필 탭 (Garden Pill Tabs: 활성 #263327, 비활성 #FAF9F6 + #E6E1D6 보더) -->
+        <div role="tablist" aria-label="프로그램 선택 탭" class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-filter="all"
+            onclick="filterPrograms('all')"
+            class="program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-forest text-white shadow-pill sprout-spring cursor-pointer"
+          >
             전체 보기 (4)
           </button>
-          <button type="button" role="tab" aria-selected="false" data-filter="coaching" onclick="filterPrograms('coaching')" class="program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-ink-700 border border-cream-300 hover:bg-ivy-50 transition-all cursor-pointer">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="coaching"
+            onclick="filterPrograms('coaching')"
+            class="program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-paper text-forest border border-sand hover:bg-pistachio-light sprout-spring cursor-pointer"
+          >
             독서코칭
           </button>
-          <button type="button" role="tab" aria-selected="false" data-filter="salon" onclick="filterPrograms('salon')" class="program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-ink-700 border border-cream-300 hover:bg-ivy-50 transition-all cursor-pointer">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="salon"
+            onclick="filterPrograms('salon')"
+            class="program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-paper text-forest border border-sand hover:bg-pistachio-light sprout-spring cursor-pointer"
+          >
             북살롱
           </button>
-          <button type="button" role="tab" aria-selected="false" data-filter="writer" onclick="filterPrograms('writer')" class="program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-ink-700 border border-cream-300 hover:bg-ivy-50 transition-all cursor-pointer">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="writer"
+            onclick="filterPrograms('writer')"
+            class="program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-paper text-forest border border-sand hover:bg-pistachio-light sprout-spring cursor-pointer"
+          >
             꿈담아작가아카데미
           </button>
-          <button type="button" role="tab" aria-selected="false" data-filter="socramom" onclick="filterPrograms('socramom')" class="program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-ink-700 border border-cream-300 hover:bg-ivy-50 transition-all cursor-pointer">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-filter="socramom"
+            onclick="filterPrograms('socramom')"
+            class="program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-paper text-forest border border-sand hover:bg-pistachio-light sprout-spring cursor-pointer"
+          >
             소크라맘아카데미
           </button>
         </div>
 
-        <!-- 4개 세부 프로그램 카드 그리드 -->
-        <div id="programGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          <!-- 1) 독서코칭 -->
-          <article data-category="coaching" class="program-card bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-card hover:border-ivy-400 transition-all flex flex-col justify-between">
+        <!-- 4개 세부 프로그램 카드 그리드 (카드 곡률 rounded-[32px], 패딩 p-7) -->
+        <div id="programGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
+          <!-- 01. 독서코칭 (1단계: 씨앗 심기 뱃지) -->
+          <article data-category="coaching" class="program-card bg-white rounded-[32px] p-7 border border-sand shadow-espresso hover:border-sprout transition-all flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-ivy-100 text-ivy-700">
-                  대표 프로그램 · 인문학 고전
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <!-- 독서 성장 단계 뱃지 1단계 -->
+                <span class="px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold bg-apricot text-espresso">
+                  🌰 1단계: 씨앗 심기 · 인문학 고전
                 </span>
-                <span class="w-9 h-9 rounded-2xl bg-ivy-50 text-ivy-600 flex items-center justify-center font-serif font-bold text-sm">
+                <span class="w-10 h-10 shape-garden-squircle bg-pistachio-light text-forest flex items-center justify-center font-editorial font-bold text-sm border border-sprout/20">
                   01
                 </span>
               </div>
-              <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink-900 mb-2.5">
+
+              <h3 class="font-serif font-bold text-[20px] sm:text-[24px] text-forest leading-[1.35] mb-3">
                 독서코칭
               </h3>
-              <p class="text-sm text-ink-700 leading-relaxed mb-5">
+              <p class="text-[15px] text-forest/85 leading-[1.65] mb-5">
                 엄선된 동서양 고전과 인문학 도서를 깊이 있게 정독하고, 핵심 질문을 통해 스스로 생각의 뿌리를 내리는 정규 독서토론·글쓰기 수업입니다.
               </p>
-              <ul class="space-y-2 text-xs sm:text-sm text-ink-700 bg-cream-100/80 rounded-2xl p-4 border border-cream-200">
-                <li class="flex items-start gap-2">
-                  <span class="text-ivy-600 font-bold mt-0.5">•</span>
-                  <span><strong>핵심 활동:</strong> 고전 맥락 읽기, 질문 만들기, 생각 구조화 글쓰기</span>
+
+              <ul class="space-y-2.5 text-sm text-forest/90 bg-paper rounded-[24px] p-5 border border-sand">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-sprout shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20V10M12 14C12 10 8.5 8.5 6 9.5C6.2 12.5 8.8 14.2 12 14ZM12 12C12 8 15.5 6.5 18 7.5C17.8 10.5 15.2 12.2 12 12Z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">핵심 활동:</strong> 고전 맥락 읽기, 질문 만들기, 생각 구조화 글쓰기</span>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-ivy-600 font-bold mt-0.5">•</span>
-                  <span><strong>기대 변화:</strong> 문해력과 논리적 사고력, 세상을 바라보는 주체적 시선</span>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-bark shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.3 6.8 19l1-5.8-4.2-4.1 5.8-.8L12 3z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">기대 변화:</strong> 문해력과 논리적 사고력, 세상을 바라보는 주체적 시선</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <span class="text-xs text-ink-500">소수정예 맞춤형 코칭</span>
-              <button type="button" onclick="openInquiryModal('독서코칭')" class="text-xs sm:text-sm font-semibold text-ivy-700 hover:text-ivy-600 inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-ivy-50 cursor-pointer">
+
+            <div class="mt-6 pt-4 border-t border-sand flex items-center justify-between gap-3">
+              <span class="font-hand font-bold text-xl text-bark">생각의 뿌리를 내려요</span>
+              <button
+                type="button"
+                onclick="openInquiryModal('독서코칭')"
+                class="min-h-[44px] px-5 py-2 rounded-full bg-apricot border border-bark/15 text-espresso font-semibold text-xs sm:text-[13px] hover:bg-pistachio sprout-spring cursor-pointer"
+              >
                 수업 문의하기 →
               </button>
             </div>
           </article>
 
-          <!-- 2) 북살롱 -->
-          <article data-category="salon" class="program-card bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-card hover:border-wood-400 transition-all flex flex-col justify-between">
+          <!-- 02. 북살롱 (2단계: 새싹 틔우기 뱃지) -->
+          <article data-category="salon" class="program-card bg-white rounded-[32px] p-7 border border-sand shadow-espresso hover:border-sprout transition-all flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-wood-100 text-wood-800">
-                  사유와 대화 · 살롱 토론
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <!-- 독서 성장 단계 뱃지 2단계 -->
+                <span class="px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold bg-pistachio text-forest">
+                  🌱 2단계: 새싹 틔우기 · 살롱 토론
                 </span>
-                <span class="w-9 h-9 rounded-2xl bg-wood-100/70 text-wood-600 flex items-center justify-center font-serif font-bold text-sm">
+                <span class="w-10 h-10 shape-garden-squircle bg-apricot text-espresso flex items-center justify-center font-editorial font-bold text-sm border border-bark/15">
                   02
                 </span>
               </div>
-              <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink-900 mb-2.5">
+
+              <h3 class="font-serif font-bold text-[20px] sm:text-[24px] text-forest leading-[1.35] mb-3">
                 북살롱
               </h3>
-              <p class="text-sm text-ink-700 leading-relaxed mb-5">
+              <p class="text-[15px] text-forest/85 leading-[1.65] mb-5">
                 따뜻한 차 한 잔과 함께 한 권의 책을 매개로 서로의 삶과 관점을 나누는 감성 인문 독서 모임입니다. 정답을 찾기보다 다름을 존중하며 사유를 확장합니다.
               </p>
-              <ul class="space-y-2 text-xs sm:text-sm text-ink-700 bg-cream-100/80 rounded-2xl p-4 border border-cream-200">
-                <li class="flex items-start gap-2">
-                  <span class="text-wood-600 font-bold mt-0.5">•</span>
-                  <span><strong>핵심 활동:</strong> 주제 도서 발제, 다각도 관점 토론, 인상 깊은 문장 필사</span>
+
+              <ul class="space-y-2.5 text-sm text-forest/90 bg-paper rounded-[24px] p-5 border border-sand">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-sprout shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">핵심 활동:</strong> 주제 도서 발제, 다각도 관점 토론, 인상 깊은 문장 필사</span>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-wood-600 font-bold mt-0.5">•</span>
-                  <span><strong>기대 변화:</strong> 타인의 시선과 공감하며 넓어지는 인문학적 통찰</span>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-bark shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">기대 변화:</strong> 타인의 시선과 공감하며 넓어지는 인문학적 통찰</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <span class="text-xs text-ink-500">따뜻하고 안전한 대화 공간</span>
-              <button type="button" onclick="openInquiryModal('북살롱')" class="text-xs sm:text-sm font-semibold text-wood-800 hover:text-wood-600 inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-wood-100 cursor-pointer">
+
+            <div class="mt-6 pt-4 border-t border-sand flex items-center justify-between gap-3">
+              <span class="font-hand font-bold text-xl text-sprout">다정한 대화의 시간</span>
+              <button
+                type="button"
+                onclick="openInquiryModal('북살롱')"
+                class="min-h-[44px] px-5 py-2 rounded-full bg-apricot border border-bark/15 text-espresso font-semibold text-xs sm:text-[13px] hover:bg-pistachio sprout-spring cursor-pointer"
+              >
                 모임 문의하기 →
               </button>
             </div>
           </article>
 
-          <!-- 3) 꿈담아작가아카데미 -->
-          <article data-category="writer" class="program-card bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-card hover:border-ivy-400 transition-all flex flex-col justify-between">
+          <!-- 03. 꿈담아작가아카데미 (3단계: 생각 줄기 뻗기 뱃지) -->
+          <article data-category="writer" class="program-card bg-white rounded-[32px] p-7 border border-sand shadow-espresso hover:border-sprout transition-all flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#F6ECE6] text-[#8F563B]">
-                  창작 · 에세이 · 책 쓰기
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <!-- 독서 성장 단계 뱃지 3단계 -->
+                <span class="px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold bg-sprout-light text-sprout">
+                  🌿 3단계: 생각 줄기 뻗기 · 창작 글쓰기
                 </span>
-                <span class="w-9 h-9 rounded-2xl bg-[#F6ECE6] text-[#8F563B] flex items-center justify-center font-serif font-bold text-sm">
+                <span class="w-10 h-10 shape-garden-squircle bg-peach/70 text-espresso flex items-center justify-center font-editorial font-bold text-sm border border-bark/15">
                   03
                 </span>
               </div>
-              <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink-900 mb-2.5">
+
+              <h3 class="font-serif font-bold text-[20px] sm:text-[24px] text-forest leading-[1.35] mb-3">
                 꿈담아작가아카데미
               </h3>
-              <p class="text-sm text-ink-700 leading-relaxed mb-5">
+              <p class="text-[15px] text-forest/85 leading-[1.65] mb-5">
                 읽기에서 멈추지 않고 나만의 언어로 이야기를 짓는 글쓰기 아카데미입니다. 글감 찾기부터 퇴고까지 세심한 코칭을 통해 한 편의 완성된 글을 엮어냅니다.
               </p>
-              <ul class="space-y-2 text-xs sm:text-sm text-ink-700 bg-cream-100/80 rounded-2xl p-4 border border-cream-200">
-                <li class="flex items-start gap-2">
-                  <span class="text-[#8F563B] font-bold mt-0.5">•</span>
-                  <span><strong>핵심 활동:</strong> 나만의 시선 포착하기, 에세이·창작 글쓰기, 개별 1:1 첨삭</span>
+
+              <ul class="space-y-2.5 text-sm text-forest/90 bg-paper rounded-[24px] p-5 border border-sand">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-sprout shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">핵심 활동:</strong> 나만의 시선 포착하기, 에세이·창작 글쓰기, 개별 1:1 첨삭</span>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#8F563B] font-bold mt-0.5">•</span>
-                  <span><strong>기대 변화:</strong> 자신을 표현하는 글쓰기 자신감과 작가적 성취감</span>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-bark shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">기대 변화:</strong> 자신을 표현하는 글쓰기 자신감과 작가적 성취감</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <span class="text-xs text-ink-500">생각을 작품으로 빚는 시간</span>
-              <button type="button" onclick="openInquiryModal('꿈담아작가아카데미')" class="text-xs sm:text-sm font-semibold text-[#8F563B] hover:opacity-80 inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-[#F6ECE6] cursor-pointer">
+
+            <div class="mt-6 pt-4 border-t border-sand flex items-center justify-between gap-3">
+              <span class="font-hand font-bold text-xl text-bark">나만의 문장을 엮어요</span>
+              <button
+                type="button"
+                onclick="openInquiryModal('꿈담아작가아카데미')"
+                class="min-h-[44px] px-5 py-2 rounded-full bg-apricot border border-bark/15 text-espresso font-semibold text-xs sm:text-[13px] hover:bg-pistachio sprout-spring cursor-pointer"
+              >
                 수업 문의하기 →
               </button>
             </div>
           </article>
 
-          <!-- 4) 소크라맘아카데미 -->
-          <article data-category="socramom" class="program-card bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-card hover:border-ivy-400 transition-all flex flex-col justify-between">
+          <!-- 04. 소크라맘아카데미 (4단계: 이야기 꽃피우기 뱃지) -->
+          <article data-category="socramom" class="program-card bg-white rounded-[32px] p-7 border border-sand shadow-espresso hover:border-sprout transition-all flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-ivy-100 text-ivy-700">
-                  부모 인문학 · 질문 코칭
+              <div class="flex items-center justify-between gap-2 mb-5">
+                <!-- 독서 성장 단계 뱃지 4단계 -->
+                <span class="px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold bg-peach text-espresso">
+                  🌸 4단계: 이야기 꽃피우기 · 부모 인문학
                 </span>
-                <span class="w-9 h-9 rounded-2xl bg-ivy-50 text-ivy-600 flex items-center justify-center font-serif font-bold text-sm">
+                <span class="w-10 h-10 shape-garden-squircle bg-pistachio text-forest flex items-center justify-center font-editorial font-bold text-sm border border-sprout/25">
                   04
                 </span>
               </div>
-              <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink-900 mb-2.5">
+
+              <h3 class="font-serif font-bold text-[20px] sm:text-[24px] text-forest leading-[1.35] mb-3">
                 소크라맘아카데미
               </h3>
-              <p class="text-sm text-ink-700 leading-relaxed mb-5">
+              <p class="text-[15px] text-forest/85 leading-[1.65] mb-5">
                 아이에게 지시 대신 사유를 여는 질문을 건네는 부모 인문학 과정입니다. 엄마가 먼저 고전을 읽고 질문하는 법을 익히며 가정 내 따뜻한 대화 문화를 만듭니다.
               </p>
-              <ul class="space-y-2 text-xs sm:text-sm text-ink-700 bg-cream-100/80 rounded-2xl p-4 border border-cream-200">
-                <li class="flex items-start gap-2">
-                  <span class="text-ivy-600 font-bold mt-0.5">•</span>
-                  <span><strong>핵심 활동:</strong> 소크라테스식 산파술 질문 연습, 부모 고전 강독 및 대화 코칭</span>
+
+              <ul class="space-y-2.5 text-sm text-forest/90 bg-paper rounded-[24px] p-5 border border-sand">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-sprout shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">핵심 활동:</strong> 소크라테스식 산파술 질문 연습, 부모 고전 강독 및 대화 코칭</span>
                 </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-ivy-600 font-bold mt-0.5">•</span>
-                  <span><strong>기대 변화:</strong> 아이의 생각을 기다려주고 이끌어주는 깊이 있는 부모 리더십</span>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-bark shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                  </svg>
+                  <span><strong class="font-semibold text-forest">기대 변화:</strong> 아이의 생각을 기다려주고 이끌어주는 깊이 있는 부모 리더십</span>
                 </li>
               </ul>
             </div>
-            <div class="mt-5 pt-4 border-t border-cream-200 flex items-center justify-between">
-              <span class="text-xs text-ink-500">함께 성장하는 부모 배움터</span>
-              <button type="button" onclick="openInquiryModal('소크라맘아카데미')" class="text-xs sm:text-sm font-semibold text-ivy-700 hover:text-ivy-600 inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-ivy-50 cursor-pointer">
+
+            <div class="mt-6 pt-4 border-t border-sand flex items-center justify-between gap-3">
+              <span class="font-hand font-bold text-xl text-sprout">질문으로 여는 가정</span>
+              <button
+                type="button"
+                onclick="openInquiryModal('소크라맘아카데미')"
+                class="min-h-[44px] px-5 py-2 rounded-full bg-apricot border border-bark/15 text-espresso font-semibold text-xs sm:text-[13px] hover:bg-pistachio sprout-spring cursor-pointer"
+              >
                 수업 문의하기 →
               </button>
             </div>
@@ -486,230 +654,285 @@
       </div>
     </section>
 
-    <!-- ==================== 3. 수업소개 섹션 ==================== -->
-    <section id="curriculum" class="py-14 sm:py-20 px-4 sm:px-6 bg-cream-200/60 border-y border-cream-300/70 scroll-mt-24">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span class="text-xs font-semibold tracking-widest uppercase text-wood-600 block mb-2">CLASS PHILOSOPHY</span>
-          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ink-900 mb-3">
+    <!-- ==================== 4. 수업소개 섹션 (D. 코칭 4단계 스텝 탭 Stepper) ==================== -->
+    <section id="curriculum" class="py-20 sm:py-24 px-4 sm:px-6 bg-pistachio-light border-y border-sand scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="font-editorial italic text-sm font-semibold text-bark block mb-2">
+            Coaching Process · 4 Steps
+          </span>
+          <h2 class="font-editorial font-bold text-[28px] sm:text-[36px] text-forest leading-[1.2] mb-3.5">
             꿈담아독서코칭 수업소개
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 leading-relaxed">
-            단순히 책의 줄거리를 요약하는 수업을 넘어, <strong class="text-ink-900 font-semibold">“왜 그럴까?”</strong>라는 질문으로 세상과 나를 연결합니다.
+          <p class="text-[15px] sm:text-base text-forest/85 leading-[1.65]">
+            단순히 책의 줄거리를 요약하는 수업을 넘어, <strong class="text-espresso font-bold">“왜 그럴까?”</strong>라는 질문으로 세상과 나를 연결합니다.
           </p>
         </div>
 
-        <!-- 3단계 수업 흐름 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-          <div class="bg-white/90 rounded-3xl p-6 border border-cream-300 shadow-2xs">
-            <div class="w-11 h-11 rounded-2xl bg-ivy-100 text-ivy-700 flex items-center justify-center font-serif font-bold text-base mb-4">
-              1단계
+        <!-- D. 코칭 4단계 스텝 탭 (01. 씨앗 → 02. 새싹 → 03. 꽃잎 → 04. 열매) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+          <!-- 01. 씨앗 -->
+          <div class="bg-paper rounded-[28px] p-7 border border-sand shadow-espresso flex flex-col justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-apricot text-espresso mb-4">
+                🌰 01. 씨앗 · 고전 정독
+              </span>
+              <h3 class="font-serif font-bold text-[20px] text-forest leading-[1.35] mb-2.5">
+                맥락을 짚는 깊이 읽기
+              </h3>
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
+                시대를 건너 살아남은 고전의 문장을 천천히 곱씹어 읽으며, 인물의 선택과 시대적 배경을 깊이 이해합니다.
+              </p>
             </div>
-            <h3 class="font-serif font-bold text-lg text-ink-900 mb-2">
-              고전 정독과 맥락 읽기
-            </h3>
-            <p class="text-sm text-ink-700 leading-relaxed">
-              시대를 건너 살아남은 고전의 문장을 천천히 곱씹어 읽으며, 인물의 선택과 시대적 배경을 깊이 이해합니다.
+            <p class="font-hand font-bold text-xl text-bark mt-5 pt-3 border-t border-sand">
+              “문장 속 숨은 뜻을 찾아요”
             </p>
           </div>
 
-          <div class="bg-white/90 rounded-3xl p-6 border border-cream-300 shadow-2xs">
-            <div class="w-11 h-11 rounded-2xl bg-wood-100 text-wood-800 flex items-center justify-center font-serif font-bold text-base mb-4">
-              2단계
+          <!-- 02. 새싹 -->
+          <div class="bg-paper rounded-[28px] p-7 border border-sand shadow-espresso flex flex-col justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pistachio text-forest mb-4">
+                🌱 02. 새싹 · 질문 발아
+              </span>
+              <h3 class="font-serif font-bold text-[20px] text-forest leading-[1.35] mb-2.5">
+                나만의 핵심 질문 세우기
+              </h3>
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
+                정해진 문제집 대신 스스로 궁금한 질문을 길어 올리며, 책 속 이야기를 오늘의 삶과 연결합니다.
+              </p>
             </div>
-            <h3 class="font-serif font-bold text-lg text-ink-900 mb-2">
-              질문과 경청의 독서토론
-            </h3>
-            <p class="text-sm text-ink-700 leading-relaxed">
-              각자 길어 올린 질문을 테이블 위에 올려두고, 서로의 생각을 경청하며 내 생각의 근거를 단단히 세웁니다.
+            <p class="font-hand font-bold text-xl text-sprout mt-5 pt-3 border-t border-sand">
+              “좋은 질문이 생각을 깨워요”
             </p>
           </div>
 
-          <div class="bg-white/90 rounded-3xl p-6 border border-cream-300 shadow-2xs">
-            <div class="w-11 h-11 rounded-2xl bg-[#F6ECE6] text-[#8F563B] flex items-center justify-center font-serif font-bold text-base mb-4">
-              3단계
+          <!-- 03. 꽃잎 -->
+          <div class="bg-paper rounded-[28px] p-7 border border-sand shadow-espresso flex flex-col justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-sprout-light text-sprout mb-4">
+                🌿 03. 꽃잎 · 경청 토론
+              </span>
+              <h3 class="font-serif font-bold text-[20px] text-forest leading-[1.35] mb-2.5">
+                관점을 나누는 독서토론
+              </h3>
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
+                각자의 질문을 원목 테이블 위에 올려두고, 서로의 생각을 경청하며 내 생각의 근거를 단단히 세웁니다.
+              </p>
             </div>
-            <h3 class="font-serif font-bold text-lg text-ink-900 mb-2">
-              사유를 엮는 글쓰기 코칭
-            </h3>
-            <p class="text-sm text-ink-700 leading-relaxed">
-              토론으로 확장된 생각을 개요로 정리하고, 진솔하고 논리적인 나만의 문장으로 완성하며 개별 피드백을 나눕니다.
+            <p class="font-hand font-bold text-xl text-bark mt-5 pt-3 border-t border-sand">
+              “다름을 존중하며 자라요”
+            </p>
+          </div>
+
+          <!-- 04. 열매 -->
+          <div class="bg-paper rounded-[28px] p-7 border border-sand shadow-espresso flex flex-col justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-peach text-espresso mb-4">
+                🌸 04. 열매 · 사유 글쓰기
+              </span>
+              <h3 class="font-serif font-bold text-[20px] text-forest leading-[1.35] mb-2.5">
+                문장으로 맺는 글쓰기 코칭
+              </h3>
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
+                토론으로 확장된 생각을 개요로 정리하고, 진솔하고 논리적인 나만의 글로 완성하며 개별 피드백을 나눕니다.
+              </p>
+            </div>
+            <p class="font-hand font-bold text-xl text-sprout mt-5 pt-3 border-t border-sand">
+              “생각이 한 편의 글이 돼요”
             </p>
           </div>
         </div>
 
-        <!-- 인용구 배너 -->
-        <div class="bg-ivy-600 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-soft">
-          <div class="text-center sm:text-left">
-            <p class="font-serif text-lg sm:text-xl font-bold mb-1">
+        <!-- 코칭 철학 인용 배너 (Warm Apricot #FDEBD4 & 코치 손글씨) -->
+        <div class="bg-apricot rounded-[32px] p-7 sm:p-9 border border-bark/15 flex flex-col md:flex-row items-center justify-between gap-6 shadow-garden">
+          <div class="text-center md:text-left">
+            <span class="font-hand font-bold text-2xl sm:text-[28px] text-bark block mb-1">
+              코치의 한마디 ✦
+            </span>
+            <p class="font-serif font-bold text-xl sm:text-2xl text-espresso mb-1.5">
               “좋은 질문 하나가 아이의 평생 사유를 깨웁니다.”
             </p>
-            <p class="text-xs sm:text-sm text-ivy-100">
+            <p class="text-sm sm:text-[15px] text-espresso/80">
               아이 한 명 한 명의 읽는 속도와 생각의 결을 존중하는 따뜻한 독서코칭
             </p>
           </div>
-          <button type="button" onclick="openInquiryModal()" class="shrink-0 px-5 py-3 rounded-2xl bg-white text-ivy-700 hover:bg-cream-100 font-semibold text-sm transition-colors cursor-pointer">
+          <button
+            type="button"
+            onclick="openInquiryModal()"
+            class="shrink-0 min-h-[48px] px-7 py-3.5 rounded-full bg-forest text-white font-semibold text-sm btn-forest-pill sprout-spring shadow-pill cursor-pointer"
+          >
             상담 일정 알아보기
           </button>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 4. 공간사진 섹션 ==================== -->
-    <section id="space" class="py-14 sm:py-20 px-4 sm:px-6 scroll-mt-24">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span class="text-xs font-semibold tracking-widest uppercase text-ivy-600 block mb-2">OUR SPACE</span>
-          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ink-900 mb-3">
+    <!-- ==================== 5. 공간사진 섹션 ==================== -->
+    <section id="space" class="py-20 sm:py-24 px-4 sm:px-6 scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="font-editorial italic text-sm font-semibold text-sprout block mb-2">
+            Our Botanical Space
+          </span>
+          <h2 class="font-editorial font-bold text-[28px] sm:text-[36px] text-forest leading-[1.2] mb-3.5">
             공간사진
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 leading-relaxed">
+          <p class="text-[15px] sm:text-base text-forest/80 leading-[1.65]">
             초록빛 아이비 잎과 결이 고운 나무, 책 향기가 어우러진 따뜻하고 차분한 배움의 공간입니다.<br class="hidden sm:inline" />
             카드를 누르시면 공간의 분위기를 자세히 보실 수 있습니다.
           </p>
         </div>
 
-        <!-- 4개 공간 카드 그리드 (모두 고해상도 인라인 SVG 일러스트로 깨짐 없이 완벽 렌더링) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        <!-- 4개 공간 카드 그리드 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7">
           <!-- 공간 1 -->
-          <button type="button" onclick="openSpaceModal(0)" class="group text-left bg-white rounded-3xl overflow-hidden border border-cream-300 shadow-card hover:border-ivy-400 transition-all focus:outline-none focus:ring-2 focus:ring-ivy-400 cursor-pointer">
-            <div class="aspect-[16/10] bg-gradient-to-br from-wood-100 via-cream-100 to-ivy-50 p-4 flex items-center justify-center overflow-hidden">
-              <svg viewBox="0 0 360 220" class="w-full h-full rounded-2xl group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="따스한 원목 토론 테이블 공간">
-                <rect width="360" height="220" fill="#F5EFE6" />
+          <button type="button" onclick="openSpaceModal(0)" class="group text-left bg-white rounded-[32px] overflow-hidden border border-sand shadow-espresso hover:border-sprout transition-all focus:outline-none focus:ring-2 focus:ring-sprout cursor-pointer">
+            <div class="aspect-[16/10] bg-pistachio-light p-5 flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 360 220" class="w-full h-full rounded-[22px] group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="따스한 원목 토론 테이블 공간">
+                <rect width="360" height="220" fill="#FAF9F6" />
                 <!-- 펜던트 조명 -->
-                <line x1="180" y1="0" x2="180" y2="34" stroke="#8C6A4A" stroke-width="2" />
-                <path d="M152 52 C 152 36, 208 36, 208 52 Z" fill="#E4D2BE" stroke="#8C6A4A" stroke-width="1.5" />
-                <ellipse cx="180" cy="54" rx="18" ry="5" fill="#FFF3C4" />
+                <line x1="180" y1="0" x2="180" y2="34" stroke="#855A3C" stroke-width="2.2" />
+                <path d="M152 52 C 152 36, 208 36, 208 52 Z" fill="#FDEBD4" stroke="#855A3C" stroke-width="2" />
+                <ellipse cx="180" cy="54" rx="18" ry="5" fill="#F9D5C2" />
                 <!-- 원목 책장 배경 -->
-                <rect x="24" y="36" width="84" height="130" rx="8" fill="#E6D5C1" />
-                <line x1="24" y1="78" x2="108" y2="78" stroke="#C6AC8F" stroke-width="3" />
-                <line x1="24" y1="122" x2="108" y2="122" stroke="#C6AC8F" stroke-width="3" />
-                <rect x="34" y="48" width="10" height="28" rx="2" fill="#7D9B83" />
-                <rect x="47" y="52" width="12" height="24" rx="2" fill="#C98A6B" />
-                <rect x="62" y="46" width="10" height="30" rx="2" fill="#8C6A4A" />
-                <rect x="36" y="92" width="12" height="28" rx="2" fill="#5D7A64" />
-                <rect x="52" y="96" width="14" height="24" rx="2" fill="#B59270" />
+                <rect x="24" y="36" width="84" height="130" rx="12" fill="#FDEBD4" stroke="#E6E1D6" stroke-width="1.5" />
+                <line x1="24" y1="78" x2="108" y2="78" stroke="#855A3C" stroke-width="2.2" />
+                <line x1="24" y1="122" x2="108" y2="122" stroke="#855A3C" stroke-width="2.2" />
+                <rect x="34" y="48" width="10" height="28" rx="3" fill="#76935B" />
+                <rect x="47" y="52" width="12" height="24" rx="3" fill="#F9D5C2" stroke="#855A3C" stroke-width="1" />
+                <rect x="62" y="46" width="10" height="30" rx="3" fill="#855A3C" />
+                <rect x="36" y="92" width="12" height="28" rx="3" fill="#263327" />
+                <rect x="52" y="96" width="14" height="24" rx="3" fill="#E3EDC4" />
                 <!-- 중앙 대형 원목 토론 테이블 -->
-                <rect x="85" y="138" width="190" height="14" rx="7" fill="#B58E67" />
-                <rect x="108" y="152" width="10" height="46" rx="4" fill="#8C6A4A" />
-                <rect x="242" y="152" width="10" height="46" rx="4" fill="#8C6A4A" />
+                <rect x="85" y="138" width="190" height="14" rx="7" fill="#855A3C" />
+                <rect x="108" y="152" width="10" height="46" rx="4" fill="#453020" />
+                <rect x="242" y="152" width="10" height="46" rx="4" fill="#453020" />
                 <!-- 테이블 위 책과 아이비 미니 화분 -->
-                <rect x="145" y="128" width="38" height="10" rx="3" fill="#FFFDF9" stroke="#8C6A4A" stroke-width="1.5" />
-                <rect x="195" y="124" width="16" height="14" rx="3" fill="#C98A6B" />
-                <circle cx="203" cy="118" r="9" fill="#5D7A64" />
-                <circle cx="195" cy="121" r="6" fill="#7D9B83" />
+                <rect x="145" y="128" width="38" height="10" rx="3" fill="#FAF9F6" stroke="#855A3C" stroke-width="1.8" />
+                <rect x="195" y="124" width="16" height="14" rx="3" fill="#F9D5C2" stroke="#855A3C" stroke-width="1.5" />
+                <circle cx="203" cy="118" r="9" fill="#76935B" />
+                <circle cx="195" cy="121" r="6" fill="#E3EDC4" />
               </svg>
             </div>
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-1.5">
-                <h3 class="font-serif font-bold text-lg text-ink-900">따스한 원목 토론 테이블</h3>
-                <span class="text-xs font-medium text-ivy-600 group-hover:translate-x-0.5 transition-transform">자세히 보기 +</span>
+            <div class="p-7">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif font-bold text-[20px] text-forest">따스한 원목 토론 테이블</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pistachio text-forest group-hover:bg-forest group-hover:text-white transition-colors">
+                  자세히 +
+                </span>
               </div>
-              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
                 서로의 눈을 맞추고 생각을 나누는 원목 토론 테이블과 은은한 조명 공간입니다.
               </p>
             </div>
           </button>
 
           <!-- 공간 2 -->
-          <button type="button" onclick="openSpaceModal(1)" class="group text-left bg-white rounded-3xl overflow-hidden border border-cream-300 shadow-card hover:border-ivy-400 transition-all focus:outline-none focus:ring-2 focus:ring-ivy-400 cursor-pointer">
-            <div class="aspect-[16/10] bg-gradient-to-br from-ivy-50 via-cream-100 to-ivy-100 p-4 flex items-center justify-center overflow-hidden">
-              <svg viewBox="0 0 360 220" class="w-full h-full rounded-2xl group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="아이비 잎과 고전 서가 창가">
-                <rect width="360" height="220" fill="#EEF4EC" />
+          <button type="button" onclick="openSpaceModal(1)" class="group text-left bg-white rounded-[32px] overflow-hidden border border-sand shadow-espresso hover:border-sprout transition-all focus:outline-none focus:ring-2 focus:ring-sprout cursor-pointer">
+            <div class="aspect-[16/10] bg-pistachio p-5 flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 360 220" class="w-full h-full rounded-[22px] group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="아이비 잎과 고전 서가 창가">
+                <rect width="360" height="220" fill="#F1F6E1" />
                 <!-- 큰 채광 창문 -->
-                <rect x="120" y="24" width="190" height="145" rx="14" fill="#FCFBF8" stroke="#C8B298" stroke-width="3" />
-                <line x1="215" y1="24" x2="215" y2="169" stroke="#DFD0BE" stroke-width="2" />
-                <line x1="120" y1="96" x2="310" y2="96" stroke="#DFD0BE" stroke-width="2" />
+                <rect x="120" y="24" width="190" height="145" rx="16" fill="#FAF9F6" stroke="#855A3C" stroke-width="2.5" />
+                <line x1="215" y1="24" x2="215" y2="169" stroke="#E6E1D6" stroke-width="2" />
+                <line x1="120" y1="96" x2="310" y2="96" stroke="#E6E1D6" stroke-width="2" />
                 <!-- 창가 위 흐르는 아이비 덩굴 -->
-                <path d="M125 32 C 165 44, 210 26, 260 40 C 285 46, 300 36, 308 30" stroke="#4E6E58" stroke-width="2.5" fill="none" />
-                <path d="M148 38 C 142 52, 152 62, 162 54 C 164 44, 156 38, 148 38 Z" fill="#5D7A64" />
-                <path d="M192 34 C 188 48, 200 56, 208 46 C 208 38, 200 32, 192 34 Z" fill="#7D9B83" />
-                <path d="M245 38 C 242 52, 254 60, 262 50 C 262 42, 254 36, 245 38 Z" fill="#4E6E58" />
-                <path d="M286 42 C 282 56, 294 64, 302 54 C 302 46, 294 40, 286 42 Z" fill="#7D9B83" />
+                <path d="M125 32 C 165 44, 210 26, 260 40 C 285 46, 300 36, 308 30" stroke="#76935B" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                <path d="M148 38 C 142 52, 152 62, 162 54 C 164 44, 156 38, 148 38 Z" fill="#76935B" />
+                <path d="M192 34 C 188 48, 200 56, 208 46 C 208 38, 200 32, 192 34 Z" fill="#263327" />
+                <path d="M245 38 C 242 52, 254 60, 262 50 C 262 42, 254 36, 245 38 Z" fill="#76935B" />
+                <path d="M286 42 C 282 56, 294 64, 302 54 C 302 46, 294 40, 286 42 Z" fill="#E3EDC4" stroke="#76935B" stroke-width="1.5" />
                 <!-- 왼쪽 고전 서가 -->
-                <rect x="28" y="34" width="72" height="156" rx="8" fill="#D5BC9E" />
-                <rect x="38" y="50" width="52" height="6" rx="2" fill="#A68664" />
-                <rect x="38" y="96" width="52" height="6" rx="2" fill="#A68664" />
-                <rect x="38" y="142" width="52" height="6" rx="2" fill="#A68664" />
-                <rect x="42" y="64" width="9" height="32" rx="2" fill="#4E6E58" />
-                <rect x="54" y="68" width="11" height="28" rx="2" fill="#FAF7F2" />
-                <rect x="68" y="62" width="10" height="34" rx="2" fill="#8C6A4A" />
-                <rect x="44" y="110" width="12" height="32" rx="2" fill="#C98A6B" />
-                <rect x="60" y="114" width="10" height="28" rx="2" fill="#7D9B83" />
+                <rect x="28" y="34" width="72" height="156" rx="12" fill="#FDEBD4" stroke="#855A3C" stroke-width="2" />
+                <rect x="38" y="50" width="52" height="5" rx="2" fill="#855A3C" />
+                <rect x="38" y="96" width="52" height="5" rx="2" fill="#855A3C" />
+                <rect x="38" y="142" width="52" height="5" rx="2" fill="#855A3C" />
+                <rect x="42" y="64" width="9" height="32" rx="2" fill="#263327" />
+                <rect x="54" y="68" width="11" height="28" rx="2" fill="#FAF9F6" stroke="#855A3C" stroke-width="1" />
+                <rect x="68" y="62" width="10" height="34" rx="2" fill="#855A3C" />
+                <rect x="44" y="110" width="12" height="32" rx="2" fill="#F9D5C2" stroke="#855A3C" stroke-width="1" />
+                <rect x="60" y="114" width="10" height="28" rx="2" fill="#76935B" />
               </svg>
             </div>
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-1.5">
-                <h3 class="font-serif font-bold text-lg text-ink-900">아이비 잎과 고전 서가</h3>
-                <span class="text-xs font-medium text-ivy-600 group-hover:translate-x-0.5 transition-transform">자세히 보기 +</span>
+            <div class="p-7">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif font-bold text-[20px] text-forest">아이비 잎과 고전 서가</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pistachio text-forest group-hover:bg-forest group-hover:text-white transition-colors">
+                  자세히 +
+                </span>
               </div>
-              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
                 자연 채광이 머무는 창가의 푸른 아이비 잎과 연령별 인문 고전이 채워진 서가입니다.
               </p>
             </div>
           </button>
 
           <!-- 공간 3 -->
-          <button type="button" onclick="openSpaceModal(2)" class="group text-left bg-white rounded-3xl overflow-hidden border border-cream-300 shadow-card hover:border-ivy-400 transition-all focus:outline-none focus:ring-2 focus:ring-ivy-400 cursor-pointer">
-            <div class="aspect-[16/10] bg-gradient-to-br from-cream-100 via-[#F7EFE6] to-wood-100 p-4 flex items-center justify-center overflow-hidden">
-              <svg viewBox="0 0 360 220" class="w-full h-full rounded-2xl group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="사유와 글쓰기 코칭 코너">
-                <rect width="360" height="220" fill="#F8F2EA" />
+          <button type="button" onclick="openSpaceModal(2)" class="group text-left bg-white rounded-[32px] overflow-hidden border border-sand shadow-espresso hover:border-sprout transition-all focus:outline-none focus:ring-2 focus:ring-sprout cursor-pointer">
+            <div class="aspect-[16/10] bg-apricot/65 p-5 flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 360 220" class="w-full h-full rounded-[22px] group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="사유와 글쓰기 코칭 코너">
+                <rect width="360" height="220" fill="#FAF9F6" />
                 <!-- 벽면 액자 -->
-                <rect x="135" y="28" width="90" height="64" rx="10" fill="#FFFFFF" stroke="#D5BC9E" stroke-width="2.5" />
-                <path d="M165 72 C 172 52, 188 52, 195 72" stroke="#5D7A64" stroke-width="2" fill="none" />
-                <circle cx="180" cy="52" r="6" fill="#7D9B83" />
+                <rect x="135" y="28" width="90" height="64" rx="14" fill="#F1F6E1" stroke="#855A3C" stroke-width="2.2" />
+                <path d="M165 72 C 172 52, 188 52, 195 72" stroke="#76935B" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <circle cx="180" cy="52" r="6" fill="#76935B" />
                 <!-- 글쓰기 1인 책상 & 스탠드 -->
-                <rect x="65" y="136" width="230" height="12" rx="6" fill="#C6A47E" />
-                <rect x="85" y="148" width="10" height="48" rx="4" fill="#8C6A4A" />
-                <rect x="265" y="148" width="10" height="48" rx="4" fill="#8C6A4A" />
+                <rect x="65" y="136" width="230" height="12" rx="6" fill="#855A3C" />
+                <rect x="85" y="148" width="10" height="48" rx="4" fill="#453020" />
+                <rect x="265" y="148" width="10" height="48" rx="4" fill="#453020" />
                 <!-- 데스크 스탠드 -->
-                <path d="M105 136 L105 104 L126 94" stroke="#6E543C" stroke-width="3" fill="none" stroke-linecap="round" />
-                <path d="M118 96 L138 88 L134 104 Z" fill="#E8D7C3" stroke="#6E543C" stroke-width="1.5" />
+                <path d="M105 136 L105 104 L126 94" stroke="#453020" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                <path d="M118 96 L138 88 L134 104 Z" fill="#FDEBD4" stroke="#855A3C" stroke-width="1.8" />
                 <!-- 원고 노트와 연필 -->
-                <rect x="152" y="126" width="68" height="10" rx="2" fill="#FFFFFF" stroke="#B59270" stroke-width="1.5" />
-                <line x1="232" y1="132" x2="252" y2="120" stroke="#4E6E58" stroke-width="3" stroke-linecap="round" />
+                <rect x="152" y="126" width="68" height="10" rx="3" fill="#FAF9F6" stroke="#855A3C" stroke-width="1.8" />
+                <line x1="232" y1="132" x2="252" y2="120" stroke="#76935B" stroke-width="3" stroke-linecap="round" />
               </svg>
             </div>
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-1.5">
-                <h3 class="font-serif font-bold text-lg text-ink-900">사유와 글쓰기 코너</h3>
-                <span class="text-xs font-medium text-ivy-600 group-hover:translate-x-0.5 transition-transform">자세히 보기 +</span>
+            <div class="p-7">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif font-bold text-[20px] text-forest">사유와 글쓰기 코너</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pistachio text-forest group-hover:bg-forest group-hover:text-white transition-colors">
+                  자세히 +
+                </span>
               </div>
-              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
                 토론 후 고요히 내면의 문장을 엮어내고 1:1 글쓰기 피드백을 나누는 집중 공간입니다.
               </p>
             </div>
           </button>
 
           <!-- 공간 4 -->
-          <button type="button" onclick="openSpaceModal(3)" class="group text-left bg-white rounded-3xl overflow-hidden border border-cream-300 shadow-card hover:border-ivy-400 transition-all focus:outline-none focus:ring-2 focus:ring-ivy-400 cursor-pointer">
-            <div class="aspect-[16/10] bg-gradient-to-br from-ivy-50 via-[#F5EFE6] to-[#F6ECE6] p-4 flex items-center justify-center overflow-hidden">
-              <svg viewBox="0 0 360 220" class="w-full h-full rounded-2xl group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="북살롱 및 소크라맘 라운지">
-                <rect width="360" height="220" fill="#F4F2EC" />
-                <!-- 파스텔 라운지 암체어 2개 -->
-                <rect x="52" y="108" width="76" height="58" rx="18" fill="#DCE6D9" stroke="#7D9B83" stroke-width="2" />
-                <rect x="64" y="138" width="52" height="28" rx="10" fill="#C9D9C6" />
-                <rect x="232" y="108" width="76" height="58" rx="18" fill="#EDE0D1" stroke="#B59270" stroke-width="2" />
-                <rect x="244" y="138" width="52" height="28" rx="10" fill="#DFCEBA" />
+          <button type="button" onclick="openSpaceModal(3)" class="group text-left bg-white rounded-[32px] overflow-hidden border border-sand shadow-espresso hover:border-sprout transition-all focus:outline-none focus:ring-2 focus:ring-sprout cursor-pointer">
+            <div class="aspect-[16/10] bg-peach/45 p-5 flex items-center justify-center overflow-hidden">
+              <svg viewBox="0 0 360 220" class="w-full h-full rounded-[22px] group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="북살롱 및 소크라맘 라운지">
+                <rect width="360" height="220" fill="#FAF9F6" />
+                <!-- 라운지 암체어 2개 -->
+                <rect x="52" y="108" width="76" height="58" rx="20" fill="#E3EDC4" stroke="#76935B" stroke-width="2" />
+                <rect x="64" y="138" width="52" height="28" rx="12" fill="#F1F6E1" />
+                <rect x="232" y="108" width="76" height="58" rx="20" fill="#FDEBD4" stroke="#855A3C" stroke-width="2" />
+                <rect x="244" y="138" width="52" height="28" rx="12" fill="#F9D5C2" />
                 <!-- 중앙 티 테이블 & 다기 -->
-                <ellipse cx="180" cy="154" rx="44" ry="12" fill="#C6A47E" />
-                <rect x="175" y="164" width="10" height="28" rx="4" fill="#8C6A4A" />
-                <rect x="164" y="138" width="16" height="14" rx="5" fill="#FFFFFF" stroke="#8C6A4A" stroke-width="1.5" />
-                <rect x="186" y="141" width="12" height="11" rx="4" fill="#FFFFFF" stroke="#8C6A4A" stroke-width="1.5" />
-                <!-- 벽면 아이비 행잉 플랜트 -->
-                <circle cx="180" cy="48" r="14" fill="#C98A6B" />
-                <path d="M172 56 C 162 72, 166 86, 174 96" stroke="#4E6E58" stroke-width="2" fill="none" />
-                <path d="M188 56 C 198 72, 194 86, 186 96" stroke="#5D7A64" stroke-width="2" fill="none" />
-                <circle cx="168" cy="76" r="5" fill="#5D7A64" />
-                <circle cx="192" cy="76" r="5" fill="#7D9B83" />
+                <ellipse cx="180" cy="154" rx="44" ry="12" fill="#855A3C" />
+                <rect x="175" y="164" width="10" height="28" rx="4" fill="#453020" />
+                <rect x="164" y="138" width="16" height="14" rx="5" fill="#FAF9F6" stroke="#855A3C" stroke-width="1.8" />
+                <rect x="186" y="141" width="12" height="11" rx="4" fill="#FAF9F6" stroke="#855A3C" stroke-width="1.8" />
+                <!-- 벽면 행잉 플랜트 -->
+                <circle cx="180" cy="48" r="14" fill="#F9D5C2" stroke="#855A3C" stroke-width="1.8" />
+                <path d="M172 56 C 162 72, 166 86, 174 96" stroke="#76935B" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <path d="M188 56 C 198 72, 194 86, 186 96" stroke="#263327" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <circle cx="168" cy="76" r="5" fill="#76935B" />
+                <circle cx="192" cy="76" r="5" fill="#E3EDC4" stroke="#76935B" stroke-width="1.5" />
               </svg>
             </div>
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-1.5">
-                <h3 class="font-serif font-bold text-lg text-ink-900">북살롱 & 소크라맘 라운지</h3>
-                <span class="text-xs font-medium text-ivy-600 group-hover:translate-x-0.5 transition-transform">자세히 보기 +</span>
+            <div class="p-7">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif font-bold text-[20px] text-forest">북살롱 & 소크라맘 라운지</h3>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pistachio text-forest group-hover:bg-forest group-hover:text-white transition-colors">
+                  자세히 +
+                </span>
               </div>
-              <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+              <p class="text-[15px] text-forest/80 leading-[1.65]">
                 북살롱과 소크라맘아카데미 회원분들이 차를 마시며 편안하게 대화하는 파스텔 라운지입니다.
               </p>
             </div>
@@ -718,115 +941,126 @@
       </div>
     </section>
 
-    <!-- ==================== 5. 오시는길 & 운영시간 안내 ==================== -->
-    <section id="location" class="py-14 sm:py-20 px-4 sm:px-6 bg-ivy-50/60 border-t border-cream-300/80 scroll-mt-24">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span class="text-xs font-semibold tracking-widest uppercase text-ivy-600 block mb-2">LOCATION & HOURS</span>
-          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ink-900 mb-3">
+    <!-- ==================== 6. 오시는길 & 운영시간 안내 ==================== -->
+    <section id="location" class="py-20 sm:py-24 px-4 sm:px-6 bg-pistachio-light/70 border-t border-sand scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="font-editorial italic text-sm font-semibold text-sprout block mb-2">
+            Location & Opening Hours
+          </span>
+          <h2 class="font-editorial font-bold text-[28px] sm:text-[36px] text-forest leading-[1.2] mb-3.5">
             오시는길 및 운영 안내
           </h2>
-          <p class="text-sm sm:text-base text-ink-700">
+          <p class="text-[15px] sm:text-base text-forest/80 leading-[1.65]">
             방문 상담은 수업 시간 외 조율이 가능하오니 미리 연락해 주시면 정성껏 안내해 드리겠습니다.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
           <!-- 왼쪽: 위치 및 운영시간 상세 카드 -->
-          <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-cream-300 shadow-card flex flex-col justify-between space-y-6">
+          <div class="lg:col-span-6 bg-white rounded-[32px] p-7 sm:p-8 border border-sand shadow-espresso flex flex-col justify-between space-y-6">
             <div class="space-y-6">
               <!-- 주소 -->
               <div>
-                <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-ivy-700 bg-ivy-100 px-3 py-1 rounded-full mb-2.5">
-                  <span>📍 오시는길</span>
-                </div>
-                <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink-900 mb-2">
+                <span class="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-semibold text-forest bg-pistachio px-3.5 py-1.5 rounded-full mb-3">
+                  📍 오시는길
+                </span>
+                <h3 class="font-serif font-bold text-xl sm:text-2xl text-forest mb-1.5">
                   포항시 남구 대해로 80-12
                 </h3>
-                <p class="text-xs sm:text-sm text-ink-500 mb-3">
+                <p class="text-sm text-forest/70 mb-4">
                   경상북도 포항시 남구 대해로 80-12 · 꿈담아독서코칭
                 </p>
-                <div class="flex flex-wrap gap-2">
-                  <button type="button" onclick="copyText('포항시 남구 대해로 80-12', '주소가 복사되었습니다.')" class="px-3.5 py-2 rounded-xl bg-cream-100 hover:bg-cream-200 text-ink-800 border border-cream-300 text-xs font-semibold transition-colors cursor-pointer">
+                <div class="flex flex-wrap gap-2.5">
+                  <button
+                    type="button"
+                    onclick="copyText('포항시 남구 대해로 80-12', '주소가 복사되었습니다.')"
+                    class="min-h-[44px] px-4 py-2 rounded-full bg-paper hover:bg-pistachio-light text-forest border border-sand text-xs sm:text-[13px] font-semibold sprout-spring cursor-pointer"
+                  >
                     📋 주소 복사하기
                   </button>
-                  <a href="https://naver.me/GA8aUIr3" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-[#03C75A]/10 hover:bg-[#03C75A]/20 text-[#029E47] border border-[#03C75A]/30 text-xs font-semibold transition-colors">
+                  <a
+                    href="https://naver.me/GA8aUIr3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="min-h-[44px] px-4 py-2 rounded-full bg-sprout-light hover:bg-pistachio text-forest border border-sprout/25 text-xs sm:text-[13px] font-semibold inline-flex items-center sprout-spring"
+                  >
                     네이버 플레이스 지도 보기 ↗
                   </a>
                 </div>
               </div>
 
-              <hr class="border-cream-200" />
+              <hr class="border-sand" />
 
               <!-- 영업시간 -->
               <div>
-                <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-wood-800 bg-wood-100 px-3 py-1 rounded-full mb-2.5">
-                  <span>🕰️ 운영시간 안내</span>
-                </div>
-                <p class="font-serif font-bold text-lg sm:text-xl text-ink-900 mb-1">
+                <span class="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-semibold text-espresso bg-apricot px-3.5 py-1.5 rounded-full mb-3">
+                  🕰️ 운영시간 안내
+                </span>
+                <p class="font-serif font-bold text-lg sm:text-xl text-forest mb-1.5">
                   매주 수요일 ~ 금요일 / 오후 1시 ~ 오후 6시
                 </p>
-                <p class="text-xs sm:text-sm text-ink-600">
+                <p class="text-sm text-forest/75 leading-[1.6]">
                   수업 중에는 전화 연결이 어려울 수 있으니 문자나 카카오톡 채널을 남겨주시면 확인 후 바로 연락드립니다.
                 </p>
 
                 <!-- 요일 시각 배지 -->
-                <div class="grid grid-cols-7 gap-1.5 mt-4 text-center text-xs">
-                  <div class="py-2 rounded-xl bg-cream-100 text-ink-500">월<span class="block text-[10px] mt-0.5">예약</span></div>
-                  <div class="py-2 rounded-xl bg-cream-100 text-ink-500">화<span class="block text-[10px] mt-0.5">예약</span></div>
-                  <div class="py-2 rounded-xl bg-ivy-600 text-white font-bold shadow-2xs">수<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
-                  <div class="py-2 rounded-xl bg-ivy-600 text-white font-bold shadow-2xs">목<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
-                  <div class="py-2 rounded-xl bg-ivy-600 text-white font-bold shadow-2xs">금<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
-                  <div class="py-2 rounded-xl bg-cream-100 text-ink-500">토<span class="block text-[10px] mt-0.5">휴무</span></div>
-                  <div class="py-2 rounded-xl bg-cream-100 text-ink-500">일<span class="block text-[10px] mt-0.5">휴무</span></div>
+                <div class="grid grid-cols-7 gap-1.5 mt-5 text-center text-xs">
+                  <div class="py-2.5 rounded-2xl bg-paper border border-sand text-forest/60">월<span class="block text-[10px] mt-0.5">예약</span></div>
+                  <div class="py-2.5 rounded-2xl bg-paper border border-sand text-forest/60">화<span class="block text-[10px] mt-0.5">예약</span></div>
+                  <div class="py-2.5 rounded-2xl bg-sprout text-white font-bold shadow-espresso">수<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
+                  <div class="py-2.5 rounded-2xl bg-sprout text-white font-bold shadow-espresso">목<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
+                  <div class="py-2.5 rounded-2xl bg-sprout text-white font-bold shadow-espresso">금<span class="block text-[10px] font-normal mt-0.5">13–18</span></div>
+                  <div class="py-2.5 rounded-2xl bg-paper border border-sand text-forest/60">토<span class="block text-[10px] mt-0.5">휴무</span></div>
+                  <div class="py-2.5 rounded-2xl bg-paper border border-sand text-forest/60">일<span class="block text-[10px] mt-0.5">휴무</span></div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- 오른쪽: 약도 일러스트 및 네이버 플레이스 바로가기 카드 -->
-          <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-cream-300 shadow-card flex flex-col justify-between">
+          <div class="lg:col-span-6 bg-white rounded-[32px] p-7 sm:p-8 border border-sand shadow-espresso flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold text-ink-500">약도 안내 (포항시 남구 대해로)</span>
-                <span class="text-xs text-ivy-600 font-medium">대해로 80-12</span>
+              <div class="flex items-center justify-between mb-3.5">
+                <span class="text-xs font-semibold text-forest/70">약도 안내 (포항시 남구 대해로)</span>
+                <span class="font-hand font-bold text-lg text-bark">대해로 80-12 ✦</span>
               </div>
 
-              <!-- 깔끔한 벡터 약도 일러스트 -->
-              <div class="rounded-2xl overflow-hidden border border-cream-300 bg-cream-100">
+              <!-- Storybook Garden 팔레트 벡터 약도 일러스트 -->
+              <div class="rounded-[24px] overflow-hidden border border-sand bg-paper">
                 <svg viewBox="0 0 420 230" class="w-full h-auto" role="img" aria-label="포항시 남구 대해로 80-12 꿈담아독서코칭 위치 약도">
-                  <rect width="420" height="230" fill="#F5F1E8" />
-                  <!-- 공원/녹지 블록 -->
-                  <rect x="24" y="24" width="110" height="68" rx="14" fill="#E3ECE0" />
-                  <text x="79" y="62" text-anchor="middle" fill="#5D7A64" font-size="11" font-family="sans-serif">따뜻한 책과 숲의 길</text>
+                  <rect width="420" height="230" fill="#FAF9F6" />
+                  <!-- 정원/녹지 블록 -->
+                  <rect x="24" y="24" width="118" height="68" rx="18" fill="#E3EDC4" />
+                  <text x="83" y="62" text-anchor="middle" fill="#263327" font-size="11" font-weight="600" font-family="sans-serif">따뜻한 책과 정원의 길</text>
 
                   <!-- 도로망 -->
-                  <path d="M0 135 L420 135" stroke="#FFFFFF" stroke-width="22" />
-                  <path d="M0 135 L420 135" stroke="#DFD5C5" stroke-width="2" stroke-dasharray="6 6" />
-                  <text x="75" y="139" fill="#786D63" font-size="11" font-weight="bold" font-family="sans-serif">대해로 방면</text>
+                  <path d="M0 135 L420 135" stroke="#FDEBD4" stroke-width="22" />
+                  <path d="M0 135 L420 135" stroke="#855A3C" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 6" />
+                  <text x="75" y="139" fill="#453020" font-size="11" font-weight="bold" font-family="sans-serif">대해로 방면</text>
 
-                  <path d="M250 0 L250 230" stroke="#FFFFFF" stroke-width="18" />
-                  <path d="M250 0 L250 230" stroke="#DFD5C5" stroke-width="1.5" stroke-dasharray="5 5" />
+                  <path d="M250 0 L250 230" stroke="#FDEBD4" stroke-width="18" />
+                  <path d="M250 0 L250 230" stroke="#855A3C" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="5 5" />
 
                   <!-- 꿈담아독서코칭 위치 핀 -->
-                  <circle cx="292" cy="92" r="34" fill="#4E6E58" fill-opacity="0.14" />
-                  <rect x="232" y="42" width="124" height="34" rx="12" fill="#4E6E58" />
-                  <text x="294" y="63" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="bold" font-family="sans-serif">꿈담아독서코칭</text>
-                  <circle cx="292" cy="92" r="8" fill="#4E6E58" stroke="#FFFFFF" stroke-width="3" />
-                  <text x="292" y="114" text-anchor="middle" fill="#2B2520" font-size="10" font-weight="bold" font-family="sans-serif">포항시 남구 대해로 80-12</text>
+                  <circle cx="292" cy="92" r="34" fill="#76935B" fill-opacity="0.18" />
+                  <rect x="230" y="40" width="128" height="36" rx="18" fill="#263327" />
+                  <text x="294" y="62" text-anchor="middle" fill="#E3EDC4" font-size="12" font-weight="bold" font-family="sans-serif">꿈담아독서코칭</text>
+                  <circle cx="292" cy="92" r="8" fill="#76935B" stroke="#FAF9F6" stroke-width="3" />
+                  <text x="292" y="114" text-anchor="middle" fill="#263327" font-size="10.5" font-weight="bold" font-family="sans-serif">포항시 남구 대해로 80-12</text>
                 </svg>
               </div>
             </div>
 
-            <div class="mt-5 pt-4 border-t border-cream-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-              <div class="text-xs text-ink-600">
+            <div class="mt-6 pt-4 border-t border-sand flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <div class="text-xs text-forest/75">
                 상세 길찾기 및 플레이스 정보는 네이버에서 확인하실 수 있습니다.
               </div>
               <a
                 href="https://naver.me/GA8aUIr3"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#03C75A] hover:bg-[#02b350] text-white font-semibold text-sm transition-colors shadow-2xs"
+                class="shrink-0 min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-sprout hover:bg-forest text-white font-semibold text-xs sm:text-[13px] sprout-spring shadow-espresso"
               >
                 <span class="font-bold">N</span>
                 <span>네이버 플레이스 바로가기</span>
@@ -837,81 +1071,88 @@
       </div>
     </section>
 
-    <!-- ==================== 6. 맨 아래 고객 문의 & 소통 채널 섹션 ==================== -->
-    <section id="bottom-inquiry" class="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-cream-100 to-wood-100/70 border-t border-cream-300">
+    <!-- ==================== 7. 고객 문의 & 소통 채널 섹션 ==================== -->
+    <section id="bottom-inquiry" class="py-20 sm:py-24 px-4 sm:px-6 bg-paper border-t border-sand">
       <div class="max-w-4xl mx-auto">
-        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-cream-300 shadow-soft text-center">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-ivy-100 text-ivy-700 text-xs font-semibold mb-3">
-            🌱 언제든 편하게 문을 두드려 주세요
+        <div class="bg-white rounded-[32px] p-7 sm:p-11 border border-sand shadow-garden text-center">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-pistachio text-forest text-xs sm:text-[13px] font-semibold mb-4">
+            🌱 언제든 편하게 정원의 문을 두드려 주세요
           </span>
-          <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ink-900 mb-3">
+          <h2 class="font-editorial font-bold text-[28px] sm:text-[36px] text-forest leading-[1.2] mb-3.5">
             꿈담아독서코칭 수업 및 상담 문의
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 max-w-xl mx-auto leading-relaxed mb-8">
+          <p class="text-[15px] sm:text-base text-forest/80 max-w-xl mx-auto leading-[1.65] mb-9">
             아이의 독서 습관, 고전 인문학 수업, 북살롱 및 아카데미 참여가 궁금하시다면<br class="hidden sm:inline" />
             전화, 카카오톡 채널, 인스타그램 등 편하신 방법으로 문의해 주세요.
           </p>
 
-          <!-- 4대 공식 소통 채널 카드 (brand.md 기반) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 text-left mb-8">
+          <!-- 4대 공식 소통 채널 카드 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-9">
             <!-- 전화 문의 -->
-            <div class="p-4 sm:p-5 rounded-2xl bg-cream-100 border border-cream-300 flex items-center justify-between gap-3">
+            <div class="p-5 rounded-[28px] bg-paper border border-sand flex items-center justify-between gap-3">
               <div>
-                <span class="text-xs font-semibold text-ivy-700 block mb-0.5">📞 전화 문의</span>
-                <a href="tel:010-3081-7141" class="font-serif font-bold text-lg sm:text-xl text-ink-900 hover:text-ivy-700">
+                <span class="text-xs font-semibold text-sprout block mb-1">📞 전화 문의</span>
+                <a href="tel:010-3081-7141" class="font-serif font-bold text-lg sm:text-xl text-forest hover:text-bark">
                   010-3081-7141
                 </a>
               </div>
-              <div class="flex items-center gap-1.5">
-                <button type="button" onclick="copyText('010-3081-7141', '전화번호가 복사되었습니다.')" class="px-3 py-2 rounded-xl bg-white border border-cream-300 text-xs font-medium text-ink-700 hover:bg-cream-200 cursor-pointer">
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="copyText('010-3081-7141', '전화번호가 복사되었습니다.')"
+                  class="min-h-[44px] px-3.5 py-2 rounded-full bg-white border border-sand text-xs font-semibold text-forest hover:bg-pistachio-light cursor-pointer"
+                >
                   복사
                 </button>
-                <a href="tel:010-3081-7141" class="px-3.5 py-2 rounded-xl bg-ivy-600 text-white text-xs font-semibold hover:bg-ivy-700">
+                <a
+                  href="tel:010-3081-7141"
+                  class="min-h-[44px] px-4 py-2 rounded-full bg-forest text-white text-xs font-semibold inline-flex items-center btn-forest-pill sprout-spring"
+                >
                   전화걸기
                 </a>
               </div>
             </div>
 
             <!-- 카카오톡 상담 -->
-            <a href="https://pf.kakao.com/_xgxdsZK/chat" target="_blank" rel="noopener noreferrer" class="p-4 sm:p-5 rounded-2xl bg-[#FEE500]/25 hover:bg-[#FEE500]/40 border border-[#E5CE00]/50 flex items-center justify-between gap-3 transition-colors">
+            <a href="https://pf.kakao.com/_xgxdsZK/chat" target="_blank" rel="noopener noreferrer" class="p-5 rounded-[28px] bg-apricot hover:bg-apricot/80 border border-bark/15 flex items-center justify-between gap-3 sprout-spring">
               <div>
-                <span class="text-xs font-semibold text-[#5C4B00] block mb-0.5">💬 카카오톡 상담</span>
-                <span class="font-bold text-base sm:text-lg text-ink-900">카카오톡 채널 채팅하기</span>
+                <span class="text-xs font-semibold text-bark block mb-1">💬 카카오톡 상담</span>
+                <span class="font-bold text-base sm:text-lg text-espresso">카카오톡 채널 채팅하기</span>
               </div>
-              <span class="px-3 py-1.5 rounded-xl bg-[#FEE500] text-[#3A1D1D] text-xs font-bold shrink-0">
+              <span class="min-h-[40px] px-4 py-2 rounded-full bg-espresso text-apricot text-xs font-bold shrink-0 inline-flex items-center">
                 채팅 ↗
               </span>
             </a>
 
             <!-- 인스타그램 -->
-            <a href="https://www.instagram.com/danbie_/" target="_blank" rel="noopener noreferrer" class="p-4 sm:p-5 rounded-2xl bg-[#F6ECE6]/70 hover:bg-[#F6ECE6] border border-[#E6CFC2] flex items-center justify-between gap-3 transition-colors">
+            <a href="https://www.instagram.com/danbie_/" target="_blank" rel="noopener noreferrer" class="p-5 rounded-[28px] bg-peach/55 hover:bg-peach/80 border border-bark/15 flex items-center justify-between gap-3 sprout-spring">
               <div>
-                <span class="text-xs font-semibold text-[#8F563B] block mb-0.5">📸 인스타그램</span>
-                <span class="font-bold text-base sm:text-lg text-ink-900">@danbie_</span>
+                <span class="text-xs font-semibold text-bark block mb-1">📸 인스타그램</span>
+                <span class="font-bold text-base sm:text-lg text-espresso">@danbie_</span>
               </div>
-              <span class="px-3 py-1.5 rounded-xl bg-white text-[#8F563B] border border-[#E6CFC2] text-xs font-semibold shrink-0">
+              <span class="min-h-[40px] px-4 py-2 rounded-full bg-paper text-espresso border border-bark/15 text-xs font-semibold shrink-0 inline-flex items-center">
                 방문하기 ↗
               </span>
             </a>
 
             <!-- 네이버 플레이스 -->
-            <a href="https://naver.me/GA8aUIr3" target="_blank" rel="noopener noreferrer" class="p-4 sm:p-5 rounded-2xl bg-[#03C75A]/10 hover:bg-[#03C75A]/15 border border-[#03C75A]/30 flex items-center justify-between gap-3 transition-colors">
+            <a href="https://naver.me/GA8aUIr3" target="_blank" rel="noopener noreferrer" class="p-5 rounded-[28px] bg-pistachio-light hover:bg-pistachio border border-sprout/25 flex items-center justify-between gap-3 sprout-spring">
               <div>
-                <span class="text-xs font-semibold text-[#029E47] block mb-0.5">📍 네이버 플레이스</span>
-                <span class="font-bold text-base sm:text-lg text-ink-900">네이버 플레이스 바로가기</span>
+                <span class="text-xs font-semibold text-sprout block mb-1">📍 네이버 플레이스</span>
+                <span class="font-bold text-base sm:text-lg text-forest">네이버 플레이스 바로가기</span>
               </div>
-              <span class="px-3 py-1.5 rounded-xl bg-[#03C75A] text-white text-xs font-semibold shrink-0">
+              <span class="min-h-[40px] px-4 py-2 rounded-full bg-sprout text-white text-xs font-semibold shrink-0 inline-flex items-center">
                 바로가기 ↗
               </span>
             </a>
           </div>
 
-          <!-- 맨 아래 대표 문의 버튼 -->
-          <div class="pt-2">
+          <!-- 맨 아래 대표 문의 버튼 (Primary Forest Pill) -->
+          <div>
             <button
               type="button"
               onclick="openInquiryModal()"
-              class="w-full sm:w-auto sm:min-w-[300px] px-8 py-4 rounded-2xl bg-ivy-600 hover:bg-ivy-700 text-white font-bold text-base sm:text-lg shadow-soft transition-all inline-flex items-center justify-center gap-2.5 cursor-pointer"
+              class="w-full sm:w-auto sm:min-w-[320px] min-h-[52px] px-8 py-4 rounded-full bg-forest text-white font-bold text-base btn-forest-pill sprout-spring shadow-pill inline-flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <span>✉️ 간편 상담 문의 남기기</span>
             </button>
@@ -921,21 +1162,41 @@
     </section>
   </main>
 
-  <!-- ==================== 푸터 (맨 아래 상호 정보 및 문의 버튼) ==================== -->
-  <footer class="bg-cream-200/80 border-t border-cream-300 py-10 px-4 sm:px-6 text-ink-700">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-      <div class="space-y-1.5">
-        <p class="font-serif font-bold text-lg text-ink-900">꿈담아독서코칭</p>
-        <p class="text-xs sm:text-sm">“책을 읽는 아이를 넘어, 세상을 읽는 아이로.” · 고전으로 생각을 키우는 인문학 독서코칭</p>
-        <p class="text-xs text-ink-500">
+  <!-- ==================== 8. 푸터 (Forest Dark Logo Lockup · Deep Forest #263327) ==================== -->
+  <footer class="bg-forest text-paper py-14 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8 text-center sm:text-left">
+      <div class="space-y-2.5">
+        <!-- Forest Dark 반전 로고: 피스타치오(#E3EDC4) & 애프리콧(#FDEBD4) 반전 라인 -->
+        <div class="inline-flex items-center gap-3 justify-center sm:justify-start">
+          <div class="w-10 h-10 shape-garden-squircle bg-paper/10 border border-pistachio/30 flex items-center justify-center">
+            <svg class="w-5 h-5" viewBox="0 0 28 28" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 20.5C6.5 19.2 10.5 19.6 14 21.5C17.5 19.6 21.5 19.2 25 20.5" stroke="#FDEBD4" />
+              <path d="M4.5 17.5C7.5 16.5 11 17 14 18.8C17 17 20.5 16.5 23.5 17.5" stroke="#E3EDC4" />
+              <path d="M14 18.5V10.5" stroke="#E3EDC4" />
+              <path d="M14 13C14 9.5 10.5 8 8 9C8.2 11.8 10.8 13.4 14 13Z" fill="#E3EDC4" fill-opacity="0.25" stroke="#E3EDC4" />
+              <path d="M14 11.5C14 8 17.5 6.5 20 7.5C19.8 10.3 17.2 11.9 14 11.5Z" fill="#E3EDC4" stroke="#E3EDC4" />
+            </svg>
+          </div>
+          <div class="flex items-baseline gap-1.5">
+            <span class="font-hand font-bold text-2xl text-apricot leading-none">꿈담아</span>
+            <span class="font-serif font-bold text-lg text-pistachio leading-none">독서코칭</span>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-pistachio/90">
+          “책을 읽는 아이를 넘어, 세상을 읽는 아이로.” · 고전으로 생각을 키우는 인문학 독서코칭
+        </p>
+        <p class="text-xs text-paper/70">
           주소: 포항시 남구 대해로 80-12 | 운영시간: 매주 수요일 ~ 금요일 / 오후 1시 ~ 오후 6시 | 전화: 010-3081-7141
         </p>
       </div>
+
       <div class="shrink-0">
+        <!-- Warm Apricot Soft Pill -->
         <button
           type="button"
           onclick="openInquiryModal()"
-          class="px-6 py-3 rounded-2xl bg-wood-800 hover:bg-ink-900 text-white text-sm font-semibold transition-colors shadow-2xs cursor-pointer"
+          class="min-h-[46px] px-7 py-3 rounded-full bg-apricot border border-bark/15 text-espresso hover:bg-pistachio text-sm font-bold sprout-spring cursor-pointer"
         >
           문의하기
         </button>
@@ -943,52 +1204,52 @@
     </div>
   </footer>
 
-  <!-- ==================== 모바일 하단 고정 문의 바 (맨 아래 언제든 터치 가능) ==================== -->
-  <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-cream-50/95 backdrop-blur-md border-t border-cream-300 px-4 py-2.5 flex items-center gap-2 shadow-soft">
-    <a href="tel:010-3081-7141" class="flex-1 py-3 rounded-xl bg-white border border-cream-300 text-ink-900 font-semibold text-xs text-center">
+  <!-- ==================== 모바일 하단 고정 문의 바 ==================== -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-paper/95 backdrop-blur-md border-t border-sand px-4 py-2.5 flex items-center gap-2.5 shadow-garden">
+    <a href="tel:010-3081-7141" class="flex-1 min-h-[44px] py-2.5 rounded-full bg-paper border border-forest text-forest font-semibold text-xs inline-flex items-center justify-center">
       📞 전화 문의
     </a>
-    <button type="button" onclick="openInquiryModal()" class="flex-[1.6] py-3 rounded-xl bg-ivy-600 text-white font-bold text-sm text-center shadow-2xs">
+    <button type="button" onclick="openInquiryModal()" class="flex-[1.6] min-h-[44px] py-2.5 rounded-full bg-forest text-white font-bold text-sm inline-flex items-center justify-center shadow-pill">
       ✉️ 수업 · 상담 문의하기
     </button>
   </div>
 
-  <!-- ==================== 상담 문의 모달 (창) ==================== -->
-  <div id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryModalTitle" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink-900/45 backdrop-blur-xs p-0 sm:p-4">
-    <div class="bg-cream-50 w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-2xl animate-fade-up max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between mb-4">
+  <!-- ==================== 상담 문의 모달 (입력 폼 규격 준수) ==================== -->
+  <div id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryModalTitle" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-forest/50 backdrop-blur-xs p-0 sm:p-4">
+    <div class="bg-white w-full sm:max-w-lg rounded-t-[32px] sm:rounded-[32px] p-7 border border-sand shadow-garden animate-fade-up max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-5">
         <div>
-          <span class="text-xs font-semibold text-ivy-600">꿈담아독서코칭</span>
-          <h3 id="inquiryModalTitle" class="font-serif font-bold text-xl text-ink-900">
+          <span class="font-editorial italic text-xs font-semibold text-sprout">Storybook Garden · 꿈담아독서코칭</span>
+          <h3 id="inquiryModalTitle" class="font-serif font-bold text-xl sm:text-2xl text-forest">
             수업 및 상담 문의하기
           </h3>
         </div>
-        <button type="button" onclick="closeInquiryModal()" aria-label="닫기" class="p-2 rounded-xl text-ink-500 hover:bg-cream-200 cursor-pointer">
+        <button type="button" onclick="closeInquiryModal()" aria-label="닫기" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-forest hover:bg-pistachio-light cursor-pointer">
           ✕
         </button>
       </div>
 
       <!-- 빠른 바로가기 채널 -->
-      <div class="grid grid-cols-2 gap-2.5 mb-5">
-        <a href="https://pf.kakao.com/_xgxdsZK/chat" target="_blank" rel="noopener noreferrer" class="py-3 px-3 rounded-2xl bg-[#FEE500] text-[#3A1D1D] font-bold text-xs sm:text-sm text-center hover:opacity-90 transition-opacity">
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <a href="https://pf.kakao.com/_xgxdsZK/chat" target="_blank" rel="noopener noreferrer" class="min-h-[44px] py-3 px-4 rounded-full bg-apricot border border-bark/15 text-espresso font-bold text-xs sm:text-sm inline-flex items-center justify-center hover:bg-pistachio sprout-spring">
           💬 카카오톡 바로 상담
         </a>
-        <a href="tel:010-3081-7141" class="py-3 px-3 rounded-2xl bg-ivy-600 text-white font-bold text-xs sm:text-sm text-center hover:bg-ivy-700 transition-colors">
+        <a href="tel:010-3081-7141" class="min-h-[44px] py-3 px-4 rounded-full bg-forest text-white font-bold text-xs sm:text-sm inline-flex items-center justify-center btn-forest-pill sprout-spring">
           📞 010-3081-7141
         </a>
       </div>
 
-      <div class="relative flex py-2 items-center mb-4">
-        <div class="flex-grow border-t border-cream-300"></div>
-        <span class="shrink mx-3 text-xs text-ink-500">또는 문의 문구 작성 후 복사하기</span>
-        <div class="flex-grow border-t border-cream-300"></div>
+      <div class="relative flex py-2 items-center mb-5">
+        <div class="flex-grow border-t border-sand"></div>
+        <span class="shrink mx-3 text-xs font-medium text-bark">또는 문의 문구 작성 후 복사하기</span>
+        <div class="flex-grow border-t border-sand"></div>
       </div>
 
-      <!-- 간편 문의 작성 폼 (복사하여 카톡/문자로 바로 전송 가능) -->
-      <form onsubmit="handleInquiryCopy(event)" class="space-y-3.5">
+      <!-- 입력 폼 (배경 #FAF9F6, 테두리 #E6E1D6, 곡률 rounded-2xl, 포커스 테두리 #76935B & 링 #E3EDC4) -->
+      <form onsubmit="handleInquiryCopy(event)" class="space-y-4">
         <div>
-          <label for="inquiryProgram" class="block text-xs font-semibold text-ink-700 mb-1">관심 프로그램</label>
-          <select id="inquiryProgram" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cream-300 text-sm text-ink-900 focus:outline-none focus:border-ivy-600">
+          <label for="inquiryProgram" class="block text-xs font-semibold text-forest mb-1.5">관심 프로그램</label>
+          <select id="inquiryProgram" class="w-full px-4 py-3 rounded-2xl bg-paper border border-sand text-sm text-forest focus:outline-none focus:border-sprout focus:ring-4 focus:ring-pistachio">
             <option value="독서코칭">독서코칭 (고전 인문학 독서토론·글쓰기)</option>
             <option value="북살롱">북살롱</option>
             <option value="꿈담아작가아카데미">꿈담아작가아카데미</option>
@@ -997,23 +1258,23 @@
           </select>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div>
-            <label for="inquiryTarget" class="block text-xs font-semibold text-ink-700 mb-1">대상 (학년 / 성인)</label>
-            <input id="inquiryTarget" type="text" placeholder="예: 초등 4학년 / 성인" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cream-300 text-sm text-ink-900 focus:outline-none focus:border-ivy-600" />
+            <label for="inquiryTarget" class="block text-xs font-semibold text-forest mb-1.5">대상 (학년 / 성인)</label>
+            <input id="inquiryTarget" type="text" placeholder="예: 초등 4학년 / 성인" class="w-full px-4 py-3 rounded-2xl bg-paper border border-sand text-sm text-forest focus:outline-none focus:border-sprout focus:ring-4 focus:ring-pistachio" />
           </div>
           <div>
-            <label for="inquiryDay" class="block text-xs font-semibold text-ink-700 mb-1">희망 요일 (수~금 13~18시)</label>
-            <input id="inquiryDay" type="text" placeholder="예: 수요일 오후 4시" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cream-300 text-sm text-ink-900 focus:outline-none focus:border-ivy-600" />
+            <label for="inquiryDay" class="block text-xs font-semibold text-forest mb-1.5">희망 요일 (수~금 13~18시)</label>
+            <input id="inquiryDay" type="text" placeholder="예: 수요일 오후 4시" class="w-full px-4 py-3 rounded-2xl bg-paper border border-sand text-sm text-forest focus:outline-none focus:border-sprout focus:ring-4 focus:ring-pistachio" />
           </div>
         </div>
 
         <div>
-          <label for="inquiryNote" class="block text-xs font-semibold text-ink-700 mb-1">궁금하신 내용</label>
-          <textarea id="inquiryNote" rows="3" placeholder="아이의 독서 성향이나 궁금한 점을 자유롭게 적어주세요." class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cream-300 text-sm text-ink-900 focus:outline-none focus:border-ivy-600"></textarea>
+          <label for="inquiryNote" class="block text-xs font-semibold text-forest mb-1.5">궁금하신 내용</label>
+          <textarea id="inquiryNote" rows="3" placeholder="아이의 독서 성향이나 궁금한 점을 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-2xl bg-paper border border-sand text-sm text-forest focus:outline-none focus:border-sprout focus:ring-4 focus:ring-pistachio"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-3.5 rounded-2xl bg-wood-800 hover:bg-ink-900 text-white font-semibold text-sm transition-colors cursor-pointer">
+        <button type="submit" class="w-full min-h-[48px] py-3.5 rounded-full bg-sprout hover:bg-forest text-white font-semibold text-sm btn-sprout-pill sprout-spring shadow-pill cursor-pointer">
           📋 문의 내용 복사하고 카톡으로 보내기
         </button>
       </form>
@@ -1021,27 +1282,27 @@
   </div>
 
   <!-- ==================== 공간사진 상세 모달 ==================== -->
-  <div id="spaceModal" role="dialog" aria-modal="true" aria-labelledby="spaceModalTitle" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-ink-900/50 backdrop-blur-xs p-4">
-    <div class="bg-cream-50 w-full max-w-md rounded-3xl p-6 border border-cream-300 shadow-2xl animate-fade-up">
-      <div class="flex items-center justify-between mb-3">
-        <span id="spaceModalTag" class="px-3 py-1 rounded-full text-xs font-semibold bg-ivy-100 text-ivy-700">공간 소개</span>
-        <button type="button" onclick="closeSpaceModal()" aria-label="닫기" class="p-2 rounded-xl text-ink-500 hover:bg-cream-200 cursor-pointer">✕</button>
+  <div id="spaceModal" role="dialog" aria-modal="true" aria-labelledby="spaceModalTitle" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-forest/50 backdrop-blur-xs p-4">
+    <div class="bg-white w-full max-w-md rounded-[32px] p-7 border border-sand shadow-garden animate-fade-up">
+      <div class="flex items-center justify-between mb-3.5">
+        <span id="spaceModalTag" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pistachio text-forest">공간 소개</span>
+        <button type="button" onclick="closeSpaceModal()" aria-label="닫기" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-forest hover:bg-pistachio-light cursor-pointer">✕</button>
       </div>
-      <h3 id="spaceModalTitle" class="font-serif font-bold text-xl text-ink-900 mb-2">공간 제목</h3>
-      <p id="spaceModalDesc" class="text-sm text-ink-700 leading-relaxed mb-5">공간 설명</p>
-      <div class="bg-white rounded-2xl p-4 border border-cream-200 text-xs text-ink-600 space-y-1 mb-5">
-        <p>• <strong>위치:</strong> 포항시 남구 대해로 80-12</p>
-        <p>• <strong>분위기:</strong> 아이비 잎, 원목, 고전이 어우러진 따뜻하고 차분한 학습 공간</p>
+      <h3 id="spaceModalTitle" class="font-serif font-bold text-xl text-forest mb-2.5">공간 제목</h3>
+      <p id="spaceModalDesc" class="text-[15px] text-forest/85 leading-[1.65] mb-5">공간 설명</p>
+      <div class="bg-paper rounded-2xl p-4 border border-sand text-xs text-forest/80 space-y-1.5 mb-6">
+        <p>• <strong class="text-forest">위치:</strong> 포항시 남구 대해로 80-12</p>
+        <p>• <strong class="text-forest">분위기:</strong> 아이비 잎, 원목, 고전이 어우러진 따뜻하고 차분한 보태니컬 학습 공간</p>
       </div>
-      <button type="button" onclick="closeSpaceModal()" class="w-full py-3 rounded-xl bg-ivy-600 text-white font-semibold text-sm hover:bg-ivy-700 cursor-pointer">
+      <button type="button" onclick="closeSpaceModal()" class="w-full min-h-[44px] py-3 rounded-full bg-forest text-white font-semibold text-sm btn-forest-pill sprout-spring cursor-pointer">
         확인
       </button>
     </div>
   </div>
 
-  <!-- ==================== 알림 토스트 메시지 (alert 대체) ==================== -->
+  <!-- ==================== 알림 토스트 메시지 ==================== -->
   <div id="toastBanner" role="status" aria-live="polite" class="pointer-events-none fixed bottom-20 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 opacity-0 transition-opacity duration-300">
-    <div id="toastMessage" class="px-5 py-3 rounded-full bg-ink-900 text-white text-xs sm:text-sm font-medium shadow-lg whitespace-nowrap">
+    <div id="toastMessage" class="px-6 py-3 rounded-full bg-forest text-pistachio text-xs sm:text-sm font-semibold shadow-garden whitespace-nowrap border border-sprout/30">
       안내 메시지
     </div>
   </div>
@@ -1078,7 +1339,7 @@
       closeIcon.classList.add('hidden');
     }
 
-    // 2. 독서코칭 세부 프로그램 필터링
+    // 2. 독서코칭 세부 프로그램 필터링 (Garden Pill Tabs 규격)
     function filterPrograms(category) {
       const cards = document.querySelectorAll('.program-card');
       const tabs = document.querySelectorAll('.program-tab');
@@ -1087,9 +1348,9 @@
         const isMatch = tab.getAttribute('data-filter') === category;
         tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
         if (isMatch) {
-          tab.className = 'program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-ivy-600 text-white shadow-2xs transition-all cursor-pointer';
+          tab.className = 'program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-forest text-white shadow-pill sprout-spring cursor-pointer';
         } else {
-          tab.className = 'program-tab px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-ink-700 border border-cream-300 hover:bg-ivy-50 transition-all cursor-pointer';
+          tab.className = 'program-tab min-h-[44px] px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold bg-paper text-forest border border-sand hover:bg-pistachio-light sprout-spring cursor-pointer';
         }
       });
 
@@ -1141,7 +1402,7 @@
       {
         tag: '공간 04 · 대화와 쉼',
         title: '북살롱 & 소크라맘 라운지',
-        desc: '북살롱 참여자분들과 소크라맘아카데미 어머님들이 따뜻한 차를 곁들이며 책과 삶, 아이와의 대화를 깊이 나누는 아늑한 파스텔 톤 라운지입니다.'
+        desc: '북살롱 참여자분들과 소크라맘아카데미 어머님들이 따뜻한 차를 곁들이며 책과 삶, 아이와의 대화를 깊이 나누는 아늑한 파스텔 라운지입니다.'
       }
     ];
 
@@ -1160,7 +1421,7 @@
       document.body.style.overflow = '';
     }
 
-    // 5. 클립보드 복사 유틸리티 (iframe 호환 execCommand 사용)
+    // 5. 클립보드 복사 유틸리티
     function copyText(text, successMsg) {
       const tempInput = document.createElement('textarea');
       tempInput.value = text;
